@@ -118,15 +118,23 @@
                                             <li class="nav-item dropdown">
                                                 <a class="nav-link dropdown-toggle" href="javascript:void(0)"
                                                    id="navbarDropdown1" role="button" data-bs-toggle="dropdown"
-                                                   aria-expanded="false"><i class="fa fa-user" style="font-size:18px;color: #131315;"
+                                                   aria-expanded="false"><i class="fa fa-user"
+                                                                            style="font-size:18px;color: #131315;"
                                                                             aria-hidden="true"></i></a>
                                                 <ul class="dropdown-menu ">
-                                                    <li><a class="dropdown-item "
-                                                           href="{% url 'accounts:login_view' %}"> <i
-                                                            class="fas fa-sign-in"></i> Login </a></li>
-                                                    <li><a class="dropdown-item "
-                                                           href="{% url 'accounts:signup_view' %}"><i
-                                                            class="fas fa-user-plus"></i> Signup </a></li>
+                                                    {% if user.is_authenticated %}
+                                                        <li><a class="dropdown-item "
+                                                               href="{% url 'accounts:logout_view' %}"> <i
+                                                                class="fas fa-sign-out"></i> log out </a></li>
+                                                    {% else %}
+                                                        <li><a class="dropdown-item "
+                                                               href="{% url 'accounts:login_view' %}"> <i
+                                                                class="fas fa-sign-in"></i> Login </a></li>
+                                                        <li><a class="dropdown-item "
+                                                               href="{% url 'accounts:signup_view' %}"><i
+                                                                class="fas fa-user-plus"></i> Signup </a></li>
+                                                    {% endif %}
+
 
                                                 </ul>
                                             </li>
@@ -143,12 +151,12 @@
                         </div>
 
 
-{#                        <!--navbar-toggler-->#}
-{#                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"#}
-{#                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"#}
-{#                                aria-expanded="false" aria-label="Toggle navigation">#}
-{#                            <span class="navbar-toggler-icon"></span>#}
-{#                        </button>#}
+                        {#                        <!--navbar-toggler-->#}
+                        {#                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"#}
+                        {#                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"#}
+                        {#                                aria-expanded="false" aria-label="Toggle navigation">#}
+                        {#                            <span class="navbar-toggler-icon"></span>#}
+                        {#                        </button>#}
                     </div>
                 </div>
             </div>

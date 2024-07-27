@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,reverse
 from django.http import JsonResponse, HttpResponse
 from django.views import View, generic
 from django.contrib.auth import authenticate, login, logout
@@ -10,7 +10,7 @@ from .forms import LoginForm, SignupForm
 class LoginView(View):
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
-            return redirect('home')
+            return redirect('pages:home')
         form = LoginForm()
         return render(request, template_name='accounts/login.html', context={'form': form})
 
@@ -23,19 +23,23 @@ class LoginView(View):
             if user is not None:
                 if user.professor_verification:
                     login(request, user)
-                    return redirect('home')
+                    return JsonResponse(
+                        {'status': 1, 'msg': 'Logged in successfully', 'url': reverse('pages:home')})
                 else:
-                    return JsonResponse({'msg': 'still under acceptance process from ICCI lab head.'})
+                    return JsonResponse(
+                        {'status': 2, 'msg': 'still under acceptance process from ICCI lab head.'})
             else:
-                return JsonResponse({'msg': 'username or password is incorrect.'})
+                return JsonResponse(
+                    {'status': 3, 'msg': 'Username or password is incorrect'})
         else:
-            return JsonResponse({'msg': form.errors})
+            return JsonResponse(
+                {'status': 3, 'msg': 'Username or password is incorrect'})
 
 
 class LogoutView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         logout(request)
-        return redirect('home')
+        return redirect('pages:home')
 
 
 class SignupView(generic.CreateView):
@@ -49,6 +53,8 @@ class SignupView(generic.CreateView):
         form = SignupForm(request.POST)
         if form.is_valid():
             form.save()
-            return JsonResponse({'msg': 'registered successfully. Message sent for ICCI LAB head for verification.'})
+            return JsonResponse(
+                {'status': 1, 'msg': 'registered successfully. Message sent for ICCI LAB head for verification.'})
         else:
-            return JsonResponse({'msg': form.errors})
+            return JsonResponse(
+                {'status': 3, 'msg': form.errors})

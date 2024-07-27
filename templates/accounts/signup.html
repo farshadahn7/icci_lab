@@ -16,6 +16,8 @@
 
                     <form class="sign-form widget-form contact_form " method="post" action="{% url 'accounts:signup_view' %}">
                         {% csrf_token %}
+                        <div class="alert alert-success contact_msg" style="display: none" role="alert">
+                        </div>
                         <div class="form-group">
 
                             <input type="text" class="form-control" placeholder="Username*" name="username" value="">
@@ -26,11 +28,16 @@
                         </div>
                         <div class="form-group">
 
-                            <input type="password" class="form-control" placeholder="Password*" name="password"
+                            <input type="password" class="form-control" placeholder="Password*" name="password1"
                                    value="">
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn-custom">Sign Up</button>
+
+                            <input type="password" class="form-control" placeholder="Re-Password*" name="password2"
+                                   value="">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn-custom" id="submit_btn">Sign Up</button>
                         </div>
                         <p class="form-group text-center">Already have an account? <a href="{% url 'accounts:login_view' %}"
                                                                                       class="btn-link">Login</a></p>
