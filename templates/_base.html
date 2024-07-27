@@ -1,0 +1,182 @@
+{% load static %}
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <!-- Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- favicon -->
+    <link rel="icon" sizes="16x16" href="{% static 'img/favicon.png' %}">
+    <!--fontawesome-->
+    <script src="https://kit.fontawesome.com/5ec4702a9b.js" crossorigin="anonymous"></script>
+    <!-- Title -->
+    <title> {% block title %}{% endblock %} </title>
+
+    <!--Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/line-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/swiper.min.css' %}">
+
+    <!-- main style -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom.css' %}">
+</head>
+
+<body>
+<!-- wrapper -->
+<div id="wrapper" class="wrapper">
+    <!--loading -->
+    <div class="loading">
+        <div class="circle"></div>
+    </div>
+    <!--/-->
+
+    <!-- Header -->
+    <header class="header fixed-top">
+        <div class="header-main navbar-expand-xl">
+            <div class="container-fluid">
+                <div class="header-main">
+                    <!-- logo -->
+                    <div class="site-branding">
+                        <a class="dark-logo" href="index.html">
+                            <img src="{% static 'img/logo/ICCI_logo_tran.png' %}" height="44" width="150" alt="">
+                        </a>
+                        <a class="light-logo" href="index.html">
+                            <img src="{% static 'img/logo/logo-white.png' %}" alt="">
+                        </a>
+                    </div><!--/-->
+
+                    <div class="main-menu header-navbar">
+                        <nav class="navbar">
+                            <!--navbar-collapse-->
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav ">
+                                    <!--Homes -->
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="#">Home</a>
+                                    </li>
+
+                                    <!--People -->
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle " href="#"
+                                           id="navbarDropdown2" role="button" data-bs-toggle="dropdown"
+                                           aria-expanded="false">People</a>
+                                        <ul class="dropdown-menu ">
+                                            <li><a class="dropdown-item " href="#">Alumni </a></li>
+                                            <li><a class="dropdown-item" style="margin-bottom: 0px!important;" href="#">Current </a>
+                                            </li>
+                                            <hr>
+                                            <li><a class="dropdown-item" href="#">Hamed Farbeh</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <!-- Research -->
+                                    <li class="nav-item ">
+                                        <a class="nav-link" href="#">Research</a>
+                                    </li>
+                                    <!--Blog-->
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link " href="#"> Blog </a>
+                                    </li>
+
+                                    <!--contact -->
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#"> contact </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                            <!--/-->
+                        </nav>
+                    </div>
+
+                    <!-- header actions -->
+                    <div class="header-action-items">
+                        <!--header-social-->
+                        <ul class="header-social list-inline">
+                            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
+                        </ul>
+
+                        <!--navbar-toggler-->
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header><!--/-->
+    {% block content %}{% endblock %}
+
+    <!--footer-->
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <section class="newslettre">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-10 col-sm-11 m-auto">
+                                <div class="newslettre-width text-center">
+                                    <div class="newslettre-info">
+                                        <h3 class="title">AmirKabir university of Technology</h3>
+                                        <p> If the hardware is the brain and the sinew of our products, the software in
+                                            them is their souls.</p>
+                                        <h3 class="title">Contact</h3>
+                                        <span>+98(21)64542729</span>
+                                        <span>Room: 4xx, Department of Computer Engineering</span>
+                                        <span>Amirkabir Univercity of Technology,</span>
+                                        <span>Hafez Avenue, Tehran,Iran</span>
+                                    </div>
+                                    <div class="site-branding mt-30">
+                                        <a class="dark-logo" href="index.html">
+                                            <img src="{% static 'img/logo/logo_white_tran.png' %}" height="44" width="150"
+                                                 alt="">
+                                        </a>
+                                    </div><!--/-->
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+                <div class="col-lg-12">
+                    <div class="copyright">
+                        <p>© Copyright <a href="#">Farshadahn</a>, All rights reserved.</p>
+                    </div>
+                    <div class="back">
+                        <a href="#" class="back-top">
+                            <i class="fas fa-arrow-up"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!--/-->
+</div>
+
+<!--plugins -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/swiper.min.js' %}"></script>
+<script src="{% static 'js/masonry.min.js' %}"></script>
+<script src="{% static 'js/theia-sticky-sidebar.min.js' %}"></script>
+<script src="{% static 'js/ajax-contact.js' %}"></script>
+<script src="{% static 'js/switch.js' %}"></script>
+
+<!-- JS main  -->
+<script src="{% static 'js/main.js' %}"></script>
+
+
+</body>
+</html>
+
