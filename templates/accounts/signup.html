@@ -1,0 +1,44 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block title %}
+    Signup
+{% endblock %}
+{% block content %}
+
+    <main class="main">
+        <!--register-->
+        <section class="mt-60  mb-60">
+            <div class="container-fluid">
+                <div class="sign widget">
+                    <div class="section-title">
+                        <h5>Sign up</h5>
+                    </div>
+
+                    <form class="sign-form widget-form contact_form " method="post" action="{% url 'accounts:signup_view' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+
+                            <input type="text" class="form-control" placeholder="Username*" name="username" value="">
+                        </div>
+                        <div class="form-group">
+
+                            <input type="email" class="form-control" placeholder="Email Address*" name="email" value="">
+                        </div>
+                        <div class="form-group">
+
+                            <input type="password" class="form-control" placeholder="Password*" name="password"
+                                   value="">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn-custom">Sign Up</button>
+                        </div>
+                        <p class="form-group text-center">Already have an account? <a href="login.html"
+                                                                                      class="btn-link">Login</a></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+{% endblock %}
