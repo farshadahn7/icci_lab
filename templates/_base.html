@@ -1,6 +1,5 @@
 {% load static %}
 <!doctype html>
-
 <html lang="en">
 
 <head>
@@ -8,13 +7,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--fontawesome-->
+    <script src="https://kit.fontawesome.com/5ec4702a9b.js" crossorigin="anonymous"></script>
 
     <!-- favicon -->
     <link rel="icon" sizes="16x16" href="{% static 'img/favicon.png' %}">
-    <!--fontawesome-->
-    <script src="https://kit.fontawesome.com/5ec4702a9b.js" crossorigin="anonymous"></script>
+
     <!-- Title -->
-    <title> {% block title %}{% endblock %} </title>
+    <title> NoonPost. - Personal Blog HTML Template </title>
 
     <!--Stylesheets -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
@@ -43,11 +43,11 @@
                 <div class="header-main">
                     <!-- logo -->
                     <div class="site-branding">
-                        <a class="dark-logo" href="index.html">
+                        <a class="dark-logo" href="{% url 'pages:home' %}">
                             <img src="{% static 'img/logo/ICCI_logo_tran.png' %}" height="44" width="150" alt="">
                         </a>
-                        <a class="light-logo" href="index.html">
-                            <img src="{% static 'img/logo/logo-white.png' %}" alt="">
+                        <a class="light-logo" href="{% url 'pages:home' %}">
+                            <img src="{% static 'img/logo/logo_white_tran.png' %}" height="44" width="150" alt="">
                         </a>
                     </div><!--/-->
 
@@ -58,37 +58,37 @@
                                 <ul class="navbar-nav ">
                                     <!--Homes -->
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="#">Home</a>
+                                        <a class="nav-link " href="{% url 'pages:home' %}">Home</a>
                                     </li>
 
                                     <!--People -->
                                     <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle " href="#"
+                                        <a class="nav-link dropdown-toggle" href="javascript:void(0)"
                                            id="navbarDropdown2" role="button" data-bs-toggle="dropdown"
                                            aria-expanded="false">People</a>
                                         <ul class="dropdown-menu ">
-                                            <li><a class="dropdown-item " href="#">Alumni </a></li>
-                                            <li><a class="dropdown-item" style="margin-bottom: 0px!important;" href="#">Current </a>
-                                            </li>
+                                            <li><a class="dropdown-item " href="post-default.html">Alumni </a></li>
+                                            <li><a class="dropdown-item" href="post-left-sidebar.html">Current </a></li>
                                             <hr>
-                                            <li><a class="dropdown-item" href="#">Hamed Farbeh</a>
-                                            </li>
+                                            <li><a class="dropdown-item" href="post-no-sidebar.html">Hamed
+                                                Farbeh</a></li>
                                         </ul>
                                     </li>
-                                    <!-- Research -->
+
+                                    <!--Research-->
                                     <li class="nav-item ">
-                                        <a class="nav-link" href="#">Research</a>
+                                        <a class="nav-link" href="javascript:void(0)"> Research </a>
                                     </li>
+
                                     <!--Blog-->
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link " href="#"> Blog </a>
+                                    <li class="nav-item ">
+                                        <a class="nav-link " href="javascript:void(0)"> Blog </a>
                                     </li>
 
                                     <!--contact -->
                                     <li class="nav-item">
                                         <a class="nav-link" href="#"> contact </a>
                                     </li>
-
                                 </ul>
                             </div>
                             <!--/-->
@@ -97,17 +97,58 @@
 
                     <!-- header actions -->
                     <div class="header-action-items">
-                        <!--header-social-->
-                        <ul class="header-social list-inline">
-                            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                        </ul>
 
-                        <!--navbar-toggler-->
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                                aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+                        <!--theme-switch-->
+                        <div class="theme-switch-wrapper switch-icon" style="margin-right: 15px">
+                            <label class="theme-switch" for="checkbox">
+                                <input type="checkbox" id="checkbox">
+                                <span class="slider round ">
+                                    <i class="lar la-sun icon-light"></i>
+                                    <i class="lar la-moon icon-dark"></i>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="header-action-items">
+                            <div class="main-menu header-navbar">
+                                <nav class="navbar">
+                                    <!--navbar-collapse-->
+                                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                        <ul class="navbar-nav">
+                                            <li class="nav-item dropdown">
+                                                <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                                                   id="navbarDropdown1" role="button" data-bs-toggle="dropdown"
+                                                   aria-expanded="false"><i class="fa fa-user" style="font-size:18px;color: #131315;"
+                                                                            aria-hidden="true"></i></a>
+                                                <ul class="dropdown-menu ">
+                                                    <li><a class="dropdown-item "
+                                                           href="{% url 'accounts:login_view' %}"> <i
+                                                            class="fas fa-sign-in"></i> Login </a></li>
+                                                    <li><a class="dropdown-item "
+                                                           href="{% url 'accounts:signup_view' %}"><i
+                                                            class="fas fa-user-plus"></i> Signup </a></li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                            <!--navbar-toggler-->
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                    aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                        </div>
+
+
+{#                        <!--navbar-toggler-->#}
+{#                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"#}
+{#                                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"#}
+{#                                aria-expanded="false" aria-label="Toggle navigation">#}
+{#                            <span class="navbar-toggler-icon"></span>#}
+{#                        </button>#}
                     </div>
                 </div>
             </div>
@@ -135,8 +176,9 @@
                                         <span>Hafez Avenue, Tehran,Iran</span>
                                     </div>
                                     <div class="site-branding mt-30">
-                                        <a class="dark-logo" href="index.html">
-                                            <img src="{% static 'img/logo/logo_white_tran.png' %}" height="44" width="150"
+                                        <a class="dark-logo" href="{% url 'pages:home' %}">
+                                            <img src="{% static 'img/logo/logo_white_tran.png' %}" height="44"
+                                                 width="150"
                                                  alt="">
                                         </a>
                                     </div><!--/-->

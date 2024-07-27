@@ -941,6 +941,7 @@ input:checked + .slider:before {
 
 .header-main .header-action-items {
   margin-left: auto;
+  margin-right: 25px !important;
 }
 
 .header-action-items {
