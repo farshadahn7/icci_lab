@@ -4,5 +4,5 @@ from posts import views
 app_name = 'posts'
 
 urlpatterns = [
-    path('', views.post, name='post'),
+    path('', views.PostListView.as_view(), name='post'),
 ]
