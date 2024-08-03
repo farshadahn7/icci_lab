@@ -91,7 +91,10 @@ h5 {
 h6 {
   font-size: 18px;
 }
-
+.color-linkedin, .color-telegram{
+  color: #4169E1 !important;
+  font-size: 22px !important;
+}
 p:first-letter,
 h5:first-letter {
   text-transform: capitalize;
@@ -1169,6 +1172,11 @@ input:checked + .slider:before {
   margin-bottom: 30px;
   -webkit-box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
           box-shadow: 0px 5px 20px 0px rgba(69, 67, 96, 0.1);
+}
+.my_widget{
+    width: 400px;
+    justify-content: center;
+    margin: auto;
 }
 
 .widget .title {

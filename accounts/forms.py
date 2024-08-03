@@ -17,7 +17,10 @@ def check(email):
 class CustomUserCreationForm(UserCreationForm):
     class Meta:
         model = CustomUser
-        fields = UserCreationForm.Meta.fields + ('status', 'position', 'student_level', 'professor_verification', 'user_image', 'linkedin_url', 'telegram_url', 'user_role', 'bio')
+        fields = UserCreationForm.Meta.fields + (
+            'status', 'position', 'student_level', 'professor_verification', 'user_image', 'linkedin_url',
+            'telegram_url',
+            'user_role', 'bio')
 
 
 class CustomUserChangeForm(UserChangeForm):

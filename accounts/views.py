@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect,reverse
+from django.shortcuts import render, redirect, reverse
 from django.http import JsonResponse, HttpResponse
 from django.views import View, generic
 from django.contrib.auth import authenticate, login, logout
@@ -58,3 +58,11 @@ class SignupView(generic.CreateView):
         else:
             return JsonResponse(
                 {'status': 3, 'msg': form.errors})
+
+
+class CurrentView(generic.TemplateView):
+    template_name = 'members/current.html'
+
+
+class AlumniView(generic.TemplateView):
+    template_name = 'members/Alumni.html'

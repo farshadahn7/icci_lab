@@ -1,0 +1,30 @@
+{% load static %}
+{% for current_member in current_info %}
+    <div class="widget-author">
+        <div class="author-img">
+            <a href="author.html" class="image">
+                <img src="{{ current_member.user_image.url }}" alt="">
+            </a>
+        </div>
+        <div class="author-content">
+            <h6 class="name">{{ current_member.first_name }} {{ current_member.last_name }}</h6>
+            <p class="bio justify-content-between">
+                {{ current_member.bio }}
+            </p>
+            <div class="social-media">
+                <ul class="list-inline">
+                    <li>
+                        <a href="{{ current_member.linkedin_url }}" class="color-linkedin ">
+                            <i class="fab la-linkedin color-linkedin"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ current_member.telegram_url }}" class="color-telegram">
+                            <i class="fab la-telegram color-telegram"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endfor %}
