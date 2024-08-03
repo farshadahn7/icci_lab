@@ -1,0 +1,39 @@
+{% extends '_base.html' %}
+{% load static %}
+{% block title %}
+    Login
+{% endblock %}
+{% block content %}
+
+    <main class="main">
+        <!--Login-->
+        <section class="mt-60 mb-60">
+            <div class="container">
+                <div class="sign widget ">
+                    <div class="section-title">
+                        <h5>Login</h5>
+                    </div>
+                    <form action="{% url 'accounts:login_view' %}" class="sign-form widget-form contact_form" method="post">
+                        {% csrf_token %}
+                        <div class="alert alert-success contact_msg" style="display: none" role="alert">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Username/email*" name="login" value="">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" placeholder="Password*" name="password"
+                                   value="">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn-custom" id="submit_btn">Login now</button>
+                        </div>
+
+                        <p class="form-group text-center">Don't have an account? <a href="{% url 'accounts:signup_view' %}" class="btn-link">Create
+                            One</a></p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+    </main>
+{% endblock %}
