@@ -1,6 +1,7 @@
 {% extends '_base.html' %}
 {% load static %}
 {% load post_tags %}
+{% load category_tag %}
 {% block title %}
     Blog
 {% endblock %}
@@ -15,9 +16,9 @@
                         <div class="categorie-title">
                             <small>
                                 <a href="index.html">Home</a>
-                                <i class="fas fa-angle-right"></i> Travel
+                                <i class="fas fa-angle-right"></i> Blog
                             </small>
-                            <h3>Category : <span> Travel</span></h3>
+                            <h3>Category : <span> all</span></h3>
                             <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                 Incidunt quae explicabo, ducimus necessitatibus eum aut enim modi
                                 saepe perspiciatis fugit
@@ -46,7 +47,7 @@
                                             </div>
                                             <div class="post-list-content">
                                                 <div class="entry-cat">
-                                                    <a href="blog-grid.html" class="categorie"> travel</a>
+                                                    <a href="blog-grid.html" class="categorie">{{ post.category }}</a>
                                                 </div>
 
                                                 <h4 class="entry-title">
@@ -105,38 +106,8 @@
                             <!--/-->
 
                             <!--widget-categories-->
-                            <div class="widget">
-                                <div class="section-title">
-                                    <h5>Categories</h5>
-                                </div>
-                                <ul class="widget-categories">
-                                    <li>
-                                        <a href="#" class="categorie">Livestyle</a>
-                                        <span class="ml-auto">22 Posts</span>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="categorie">Travel</a>
-                                        <span class="ml-auto">18 Posts</span>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="categorie">Food</a>
-                                        <span class="ml-auto">14 Posts</span>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="categorie">fashion</a>
-                                        <span class="ml-auto">10 Posts</span>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="categorie">interior</a>
-                                        <span class="ml-auto">14 Posts</span>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="categorie">art & design</a>
-                                        <span class="ml-auto">10 Posts</span>
-                                    </li>
-
-                                </ul>
-                            </div>
+                            {% category_list %}
+                            <!-- -->
 
                         </div>
                     </div>

@@ -1,6 +1,7 @@
 {% extends '_base.html' %}
 {% load static %}
 {% load post_tags %}
+{% load category_tag %}
 {% block title %}
     Home
 {% endblock %}
@@ -119,38 +120,8 @@
                             <!--/-->
 
                             <!--widget-categories-->
-                            <div class="widget">
-                                <div class="section-title">
-                                    <h5>Categories</h5>
-                                </div>
-                                <ul class="widget-categories">
-                                    <li>
-                                        <a href="#" class="categorie">Livestyle</a>
-                                        <span class="ml-auto">22 Posts</span>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="categorie">Travel</a>
-                                        <span class="ml-auto">18 Posts</span>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="categorie">Food</a>
-                                        <span class="ml-auto">14 Posts</span>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="categorie">fashion</a>
-                                        <span class="ml-auto">10 Posts</span>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="categorie">interior</a>
-                                        <span class="ml-auto">14 Posts</span>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="categorie">art & design</a>
-                                        <span class="ml-auto">10 Posts</span>
-                                    </li>
-
-                                </ul>
-                            </div>
+                                {% category_list %}
+                            <!-- -->
                         </div>
                     </div>
                 </div>
