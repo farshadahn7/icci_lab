@@ -84,7 +84,7 @@
                                                     <li class="post-author-img"><a href="#"> <img
                                                             src="{% static 'img/author/1.jpg' %}" alt=""></a></li>
                                                     <li class="post-author"><a href="author.html">David Smith</a></li>
-                                                    <li class="post-date"><span class="dot"></span> February 10, 2022
+                                                    <li class="post-date"><span class="dot"></span> {{ post.created_at|date:"M d, Y" }}
                                                     </li>
                                                 </ul>
                                             </div>
