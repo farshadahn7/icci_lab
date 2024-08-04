@@ -1,5 +1,6 @@
-./.idea
+idea/
 .env
 __pycache__/
 venv
 new_venv
+/.idea
