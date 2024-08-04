@@ -1,5 +1,6 @@
 {% extends '_base.html' %}
 {% load static %}
+{% load post_tags %}
 {% block title %}
     Home
 {% endblock %}
@@ -114,29 +115,7 @@
                     <div class="col-xl-3 max-width side-sidebar">
                         <div class="theiaStickySidebar">
                             <!--widget-latest-posts-->
-                            <div class="widget ">
-                                <div class="section-title">
-                                    <h5>Latest Posts</h5>
-                                </div>
-                                <ul class="widget-latest-posts">
-
-                                    <li class="post-item">
-                                        <div class="image">
-                                            <a href="post-default.html"> <img src="{% static 'img/latest/1.jpg' %}"
-                                                                              alt="..."></a>
-                                        </div>
-                                        <div class="count">1</div>
-                                        <div class="content">
-                                            <p class="entry-title"><a href="post-default.html">5 Things I Wish I Knew
-                                                Before Traveling to Malaysia</a></p>
-                                            <small class="post-date"><i class="fas fa-clock"></i> January 15,
-                                                2022</small>
-                                        </div>
-                                    </li>
-
-
-                                </ul>
-                            </div>
+                            {% latest_posts %}
                             <!--/-->
 
                             <!--widget-categories-->
