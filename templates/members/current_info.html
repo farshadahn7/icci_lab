@@ -1,29 +1,38 @@
 {% load static %}
 {% for current_member in current_info %}
-    <div class="widget-author">
-        <div class="author-img">
-            <a href="author.html" class="image">
-                <img src="{{ current_member.user_image.url }}" alt="">
-            </a>
-        </div>
-        <div class="author-content">
-            <h6 class="name">{{ current_member.username }}</h6>
-            <p class="bio">
-                {{ current_member.bio }}
-            </p>
-            <div class="social-media">
-                <ul class="list-inline">
-                    <li>
-                        <a href="{{ current_member.linkedin_url }}" class="color-linkedin">
-                            <i class="fab la-linkedin color-linkedin" ></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="{{ current_member.telegram_url }}" class="color-telegram">
-                            <i class="fab la-telegram color-telegram" ></i>
-                        </a>
-                    </li>
-                </ul>
+    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-6  mt-40">
+        <div class="widget">
+            <div class="widget-author">
+                <div class="author-img">
+                    <a href="author.html" class="image">
+                        <img src="{{ current_member.user_image.url }}" alt="">
+                    </a>
+                </div>
+                <div class="author-content">
+                    <h6 class="name">{{ current_member.username }}</h6>
+                    <p class="bio">
+                        {{ current_member.bio }}
+                    </p>
+                    <div class="social-media">
+                        <ul class="list-inline">
+                            <li>
+                                <a href="{{ current_member.linkedin_url }}" class="color-linkedin">
+                                    <i class="fab la-linkedin color-linkedin"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ current_member.telegram_url }}" class="color-telegram">
+                                    <i class="fab la-telegram color-telegram"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ alumni_member.email }}" class="color-telegram">
+                                    <i class="fa-regular fa-envelope color-telegram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

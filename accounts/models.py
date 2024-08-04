@@ -21,7 +21,7 @@ class CustomUser(AbstractUser):
     position = models.CharField(max_length=512, blank=True, null= True)
     student_level = models.CharField(max_length=11, choices=STUDENT_LEVEL, blank=True, null=True)
     professor_verification = models.BooleanField(default=False)
-    user_image = models.ImageField(blank=True, upload_to='users')
+    user_image = models.ImageField(blank=True, upload_to='users', default='img/user/avatar.jpg')
     linkedin_url = models.CharField(max_length=512, blank=True, null=True)
     telegram_url = models.CharField(max_length=512, blank=True, null=True)
     user_role = models.CharField(max_length=10 ,choices=USER_ROLE, default=USER_ROLE[0])
