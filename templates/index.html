@@ -71,7 +71,7 @@
                                             </div>
                                             <div class="post-card-content">
                                                 <div class="entry-cat">
-                                                    <a href="#" class="categorie"> food</a>
+                                                    <a href="#" class="categorie">{{ post.category.name }}</a>
                                                 </div>
 
                                                 <h5 class="entry-title">
@@ -83,9 +83,6 @@
                                                 </div>
 
                                                 <ul class="entry-meta list-inline">
-                                                    <li class="post-author-img"><a href="#"> <img
-                                                            src="{% static 'img/author/1.jpg' %}" alt=""></a></li>
-                                                    <li class="post-author"><a href="author.html">David Smith</a></li>
                                                     <li class="post-date"><span class="dot"></span> {{ post.created_at|date:"M d, Y" }}
                                                     </li>
                                                 </ul>
@@ -96,21 +93,27 @@
                                 {% endfor %}
 
                             </div>
-
-                            <!--pagination-->
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="pagination ">
-                                        <ul class="list-inline">
-                                            <li class="active"><a href="#">1</a></li>
-                                            <li><a href="#">2</a></li>
-                                            <li><a href="#">3</a></li>
-                                            <li><a href="#">4</a></li>
-                                            <li><a href="#"><i class="fas fa-arrow-right"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
+                        <div class="row">
+                            <div class="col-lg-12" style="text-align: center;margin-bottom: 30px">
+                                <a href="{% url 'posts:post' %}" class="btn btn-custom">Show more....</a>
                             </div>
+                             
+                        </div>
+                           
+                            <!--pagination-->
+{#                            <div class="row">#}
+{#                                <div class="col-lg-12">#}
+{#                                    <div class="pagination ">#}
+{#                                        <ul class="list-inline">#}
+{#                                            <li class="active"><a href="#">1</a></li>#}
+{#                                            <li><a href="#">2</a></li>#}
+{#                                            <li><a href="#">3</a></li>#}
+{#                                            <li><a href="#">4</a></li>#}
+{#                                            <li><a href="#"><i class="fas fa-arrow-right"></i></a></li>#}
+{#                                        </ul>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
                         </div>
                     </div>
                     <div class="col-xl-3 max-width side-sidebar">

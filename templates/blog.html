@@ -18,10 +18,12 @@
                                 <a href="index.html">Home</a>
                                 <i class="fas fa-angle-right"></i> Blog
                             </small>
-                            <h3>Category : <span> all</span></h3>
-                            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Incidunt quae explicabo, ducimus necessitatibus eum aut enim modi
-                                saepe perspiciatis fugit
+                            <h3>Category : <span class="categorie text-white"> {{ cat_name_of_page }}</span></h3>
+                            <p>
+                                {% for cat in category %}
+                                    <span><a href="{% url 'posts:post' cat.id %}" class="categorie">{{ cat }}</a></span>
+                                {% endfor %}
+                                <span><a href="{% url 'posts:post' %}" class="categorie">All</a></span>
                             </p>
                         </div>
                     </div>
@@ -47,7 +49,7 @@
                                             </div>
                                             <div class="post-list-content">
                                                 <div class="entry-cat">
-                                                    <a href="blog-grid.html" class="categorie">{{ post.category }}</a>
+                                                    <a href="{% url 'posts:post' post.category.id %}" class="categorie">{{ post.category }}</a>
                                                 </div>
 
                                                 <h4 class="entry-title">
@@ -59,10 +61,8 @@
                                                 </div>
 
                                                 <ul class="entry-meta list-inline">
-                                                    <li class="post-author-img"><a href="author.html"> <img
-                                                            src="assets/img/author/1.jpg" alt=""></a></li>
-                                                    <li class="post-author"><a href="author.html">David Smith</a></li>
-                                                    <li class="post-date"><span class="dot"></span> {{ post.created_at|date:"M d, Y" }}
+                                                    <li class="post-date"><span
+                                                            class="dot"></span> {{ post.created_at|date:"M d, Y" }}
                                                     </li>
                                                 </ul>
                                             </div>
@@ -72,29 +72,26 @@
                                 </div>
                             </div>
 
-
+                            {% if is_paginated %}
                             <!--pagination-->
                             <div class="pagination mt-30">
                                 <ul class="list-inline">
+                                    {% if page_obj.has_previous %}
+                                        <li><a href=/blog?page={{ page_obj.previous_page_number }}">
+                                            {{ page_obj.previous_page_number }}
+                                        </a></li>
+                                    {% endif %}
                                     <li class="active">
-                                        <a href="#">1</a>
+                                        <a href="#">{{ page_obj.number }}</a>
                                     </li>
-                                    <li>
-                                        <a href="#">2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">3</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">4</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">
-                                            <i class="fas fa-arrow-right"></i>
-                                        </a>
-                                    </li>
+                                    {% if page_obj.has_next %}
+                                        <li><a href=/blog?page={{ page_obj.next_page_number }}">
+                                            {{ page_obj.next_page_number }}
+                                        </a></li>
+                                    {% endif %}
                                 </ul>
                             </div>
+                        {% endif %}
                         </div>
                     </div>
 

@@ -6,7 +6,7 @@
     <ul class="widget-categories">
         {% for category_list in category_lists %}
         <li>
-            <a href="#" class="categorie">{{ category_list.name }}</a>
+            <a href="{% url 'posts:post' category_list.id %}" class="categorie">{{ category_list.name }}</a>
             <span class="ml-auto">{{ category_list.number_of_cat }}</span>
         </li>
         {% endfor %}

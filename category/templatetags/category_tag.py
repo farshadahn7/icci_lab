@@ -12,6 +12,6 @@ def category_list():
     cat_list = []
     for category in categories:
         cat_list.append(
-            {'name': category.name, 'number_of_cat': category.number_of_cat}
+            {'name': category.name, 'number_of_cat': category.number_of_cat, 'id':category.id}
         )
     return {'category_lists': cat_list}
