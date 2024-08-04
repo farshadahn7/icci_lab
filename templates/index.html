@@ -12,7 +12,8 @@
             <div class="slider-style5 ">
                 <div class="swiper-wrapper">
                     <!--slider-1-->
-                    <div class="slider-item  swiper-slide" style="background-image: url({% static 'img/pic/s1.jpg' %});">
+                    <div class="slider-item  swiper-slide"
+                         style="background-image: url({% static 'img/pic/s1.jpg' %});">
                         <div class="container ">
                             <div class="row">
                                 <div class="col-lg-8 col-md-12 m-auto">
@@ -28,7 +29,8 @@
                     </div>
 
                     <!--slider-2-->
-                    <div class="slider-item  swiper-slide" style="background-image: url({% static 'img/pic/s2.jpg' %});">
+                    <div class="slider-item  swiper-slide"
+                         style="background-image: url({% static 'img/pic/s2.jpg' %});">
                         <div class="container ">
                             <div class="row">
                                 <div class="col-lg-8 m-auto">
@@ -56,40 +58,40 @@
                     <div class="col-xl-9 mt-30 side-content">
                         <div class="theiaStickySidebar">
                             <div class="row masonry-items">
-
-                                <!--Posts-->
-                                <div class="col-lg-6 col-md-6 masonry-item">
-                                    <div class="post-card ">
-                                        <div class="post-card-image">
-                                            <a href="post-default.html">
-                                                <img src="{% static 'img/blog/7.jpg' %}" alt="">
-                                            </a>
-                                        </div>
-                                        <div class="post-card-content">
-                                            <div class="entry-cat">
-                                                <a href="#" class="categorie"> food</a>
+                                {% for post in posts %}
+                                    <!--Posts-->
+                                    <div class="col-lg-6 col-md-6 masonry-item">
+                                        <div class="post-card ">
+                                            <div class="post-card-image">
+                                                <a href="post-default.html">
+                                                    <img src="{{ post.image.url }}" alt="">
+                                                </a>
                                             </div>
+                                            <div class="post-card-content">
+                                                <div class="entry-cat">
+                                                    <a href="#" class="categorie"> food</a>
+                                                </div>
 
-                                            <h5 class="entry-title">
-                                                <a href="#">What Are Your Tips for Hosting an Easy
-                                                    Birthday Party?</a>
-                                            </h5>
+                                                <h5 class="entry-title">
+                                                    <a href="#">{{ post.title }}</a>
+                                                </h5>
 
-                                            <div class="post-exerpt">
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit quam
-                                                    atque ipsa laborum sunt distinctio... </p>
+                                                <div class="post-exerpt">
+                                                    <p>{{ post.content|truncatewords:15 }} </p>
+                                                </div>
+
+                                                <ul class="entry-meta list-inline">
+                                                    <li class="post-author-img"><a href="#"> <img
+                                                            src="{% static 'img/author/1.jpg' %}" alt=""></a></li>
+                                                    <li class="post-author"><a href="author.html">David Smith</a></li>
+                                                    <li class="post-date"><span class="dot"></span> February 10, 2022
+                                                    </li>
+                                                </ul>
                                             </div>
-
-                                            <ul class="entry-meta list-inline">
-                                                <li class="post-author-img"><a href="#"> <img
-                                                        src="{% static 'img/author/1.jpg' %}" alt=""></a></li>
-                                                <li class="post-author"><a href="author.html">David Smith</a></li>
-                                                <li class="post-date"><span class="dot"></span> February 10, 2022</li>
-                                            </ul>
                                         </div>
                                     </div>
-                                </div>
-                                <!--/-->
+                                    <!--/-->
+                                {% endfor %}
 
                             </div>
 
