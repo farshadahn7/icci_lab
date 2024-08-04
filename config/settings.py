@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'contact.apps.ContactConfig',
     'posts.apps.PostsConfig',
+    'category.apps.CategoryConfig',
 ]
 
 MIDDLEWARE = [
