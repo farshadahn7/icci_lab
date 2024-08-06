@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'contact.apps.ContactConfig',
     'posts.apps.PostsConfig',
     'category.apps.CategoryConfig',
+    'publication.apps.PublicationConfig',
 ]
 
 MIDDLEWARE = [

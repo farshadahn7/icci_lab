@@ -165,7 +165,6 @@ ul {
   padding-left: 30px;
 }
 
-
 /* ------------------------------
 		 Helpers
 ------------------------------ */
@@ -3103,3 +3102,4 @@ input:checked + .slider:before {
 .dark ::placeholder {
   color: #d9d9d9 !important;
 }
+
