@@ -1,4 +1,4 @@
-from django.views.generic import CreateView, ListView, UpdateView, DeleteView
+from django.views.generic import CreateView, ListView, UpdateView, DeleteView, DetailView
 
 from django.shortcuts import render
 
@@ -26,3 +26,9 @@ class PostListView(ListView):
             cat_name_of_page = 'All Categories'
             context = {'posts': posts, 'category': category, 'cat_name_of_page': cat_name_of_page}
             return render(request, self.template_name, context)
+
+
+class PostDetailView(DetailView):
+    model = Post
+    template_name = 'post-details.html'
+    context_object_name = 'post'
