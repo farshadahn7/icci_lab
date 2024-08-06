@@ -26,7 +26,12 @@
                                     <tbody style="text-align: center">
                                     <tr class="table-active">
                                         <th scope="row">{{ publication.published_year }}</th>
-                                        <td colspan="2">{{ publication.title }}</td>
+                                        {% if publication.file.url is not None %}
+                                            <td colspan="2"><a href="{{ publication.file.url }}"
+                                                               class="btn-link">{{ publication.title }}</a></td>
+                                        {% endif %}
+                                        <td colspan="2"><a href="#"
+                                                           class="btn-link">{{ publication.title }}</a></td>
                                         <td>{{ publication.published_at }}</td>
                                     </tr>
                                     <tr>
