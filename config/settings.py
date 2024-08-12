@@ -35,7 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    # Installed app
+    'ckeditor',
     # local apps
     'accounts.apps.AccountsConfig',
     'pages.apps.PagesConfig',
@@ -43,6 +44,7 @@ INSTALLED_APPS = [
     'posts.apps.PostsConfig',
     'category.apps.CategoryConfig',
     'publication.apps.PublicationConfig',
+    'panel.apps.PanelConfig',
 ]
 
 MIDDLEWARE = [
@@ -102,6 +104,20 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+CKEDITOR_UPLOAD_PATH = 'uploads/'
+CKEDITOR_IMAGE_BACKEND = "pillow"
+CKEDITOR_JQUERY_URL = '//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'
+CKEDITOR_CONFIGS = {
+    'default':
+        {
+            'toolbar': 'full',
+            'width': 'auto',
+            'extraPlugins': ','.join([
+                'codesnippet',
+            ]),
+        },
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

@@ -6,11 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b1762ef6-8a0f-4fbd-b029-c1591a510133" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/members/alumni_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/members/alumni_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/members/alumni_phd_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/members/alumni_phd_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/members/current_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/members/current_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/members/current_phd_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/members/current_phd_info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/members/head_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/members/head_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/posts/models.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +21,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -57,8 +58,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.pycharm.django.structure.promotion.once.per.project": "true",
     "django.template.preview.state": "SHOW_EDITOR",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/Farshad/Desktop/lab_icci/icci_lab/templates",
+    "git-widget-placeholder": "panel",
+    "last_opened_file_path": "C:/Users/Farshad/Desktop/Hesab_Ketab/project",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -70,6 +71,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Farshad\Desktop\lab_icci\icci_lab\templates\panel" />
+      <recent name="C:\Users\Farshad\Desktop\lab_icci\icci_lab\assets\panel" />
       <recent name="C:\Users\Farshad\Desktop\lab_icci\icci_lab\templates" />
     </key>
   </component>
@@ -119,6 +122,10 @@
       <workItem from="1722777518395" duration="6309000" />
       <workItem from="1722875276742" duration="576000" />
       <workItem from="1722949497191" duration="4946000" />
+      <workItem from="1723146944968" duration="92000" />
+      <workItem from="1723191252785" duration="23731000" />
+      <workItem from="1723304006235" duration="8868000" />
+      <workItem from="1723464575915" duration="11620000" />
     </task>
     <servers />
   </component>

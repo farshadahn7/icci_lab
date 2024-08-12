@@ -29,6 +29,8 @@ urlpatterns = [
     path('contact/', include('contact.urls')),
     path('blog/', include('posts.urls')),
     path('publication', include('publication.urls')),
+    path('panel/', include('panel.urls')),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
