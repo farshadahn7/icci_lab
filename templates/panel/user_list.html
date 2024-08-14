@@ -100,10 +100,11 @@
                                                 {% endif %}
                                                 <td>
                                                     <div class="action_btns d-flex">
+                                                        <a href="{% url 'panel:make_admin' user.id %}" class=" mb-2 bg-secondary ps-3 pe-3 pt-2 pb-2 rounded d-inline-block">Make Admin</a>
                                                         <a href="{% url 'panel:edite_user' user.id %}" class="action_btn mr_10"> <i
                                                                 class="far fa-edit"></i>
                                                         </a>
-                                                        <a href="#" class="action_btn"> <i class="fas fa-trash"></i>
+                                                        <a href="{% url 'panel:delete_user' user.id %}" class="action_btn"> <i class="fas fa-trash"></i>
                                                         </a>
                                                     </div>
                                                 </td>

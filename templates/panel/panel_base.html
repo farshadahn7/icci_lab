@@ -124,6 +124,20 @@
                 <li><a href="{% url 'panel:new_category' %}">New category</a></li>
             </ul>
         </li>
+        <li class>
+            <a class="has-arrow" href="#" aria-expanded="false">
+                <div class="nav_icon_small">
+                    <img src="{% static 'panel/img/menu-icon/11.svg' %}" alt>
+                </div>
+                <div class="nav_title">
+                    <span>publication</span>
+                </div>
+            </a>
+            <ul>
+                <li><a href="{% url 'panel:publication_list' %}">publications</a></li>
+                <li><a href="{% url 'panel:new_publication' %}">New article</a></li>
+            </ul>
+        </li>
 
     </ul>
 </nav>

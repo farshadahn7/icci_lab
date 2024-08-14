@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.http import HttpResponse
 from django.urls import reverse_lazy
 from django.views import generic
@@ -9,6 +9,8 @@ from posts.forms import PostForm
 from posts.models import Post
 from category.models import Category
 from category.forms import CategoryForm
+from publication.models import Publication
+from publication.forms import PublicationForm
 
 
 class PanelView(generic.ListView):
@@ -57,6 +59,19 @@ class UserUpdateView(generic.UpdateView):
     success_url = reverse_lazy('panel:panel_home')
 
 
+def delete_user(request, user_id):
+    user = CustomUser.objects.get(pk=user_id)
+    user.delete()
+    return redirect('panel:user_list')
+
+
+def verify_user(request, user_id):
+    user = get_object_or_404(CustomUser, id=user_id)
+    user.professor_verification = True
+    user.save()
+    return redirect('panel:edite_user', user.id)
+
+
 class AdminListView(generic.ListView):
     model = CustomUser
     template_name = 'panel/admin_list.html'
@@ -67,6 +82,20 @@ class AdminListView(generic.ListView):
                                            student_level__in=['Bachelors', 'Master', 'PHD'],
                                            user_role='admin')
         return admins
+
+
+def make_admin(request, user_id):
+    user = get_object_or_404(CustomUser, pk=user_id)
+    user.user_role = 'admin'
+    user.save()
+    return redirect('panel:admin_list')
+
+
+def un_role(request, user_id):
+    user = get_object_or_404(CustomUser, pk=user_id)
+    user.user_role = 'student'
+    user.save()
+    return redirect('panel:admin_list')
 
 
 class PostListView(generic.ListView):
@@ -153,3 +182,30 @@ class CategoryUpdateView(generic.UpdateView):
     template_name = 'panel/new_category.html'
     context_object_name = 'cat'
     success_url = reverse_lazy('panel:category_list')
+
+
+class PublicationListView(generic.ListView):
+    model = Publication
+    template_name = 'panel/publications.html'
+    context_object_name = 'pubs'
+
+
+def delete_publication(request, pub_id):
+    pub = Publication.objects.get(pk=pub_id)
+    pub.delete()
+    return redirect('panel:publication_list')
+
+
+class PublicationCreateView(generic.CreateView):
+    model = Publication
+    form_class = PublicationForm
+    template_name = 'panel/new_publication.html'
+    success_url = reverse_lazy('panel:publication_list')
+
+
+class PublicationUpdateView(generic.UpdateView):
+    model = Publication
+    form_class = PublicationForm
+    template_name = 'panel/new_publication.html'
+    context_object_name = 'pub'
+    success_url = reverse_lazy('panel:publication_list')

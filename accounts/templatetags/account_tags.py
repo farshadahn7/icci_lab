@@ -12,23 +12,23 @@ def get_head_info():
 
 @register.inclusion_tag('members/current_info.html')
 def get_current_info():
-    current_info = CustomUser.objects.filter(user_role='student', status='current', student_level='Master')
+    current_info = CustomUser.objects.filter(status='current', student_level='Master')
     return {'current_info': current_info}
 
 
 @register.inclusion_tag('members/current_phd_info.html')
 def get_current_phd_info():
-    current_info = CustomUser.objects.filter(user_role='student', status='current', student_level='PHD')
+    current_info = CustomUser.objects.filter(status='current', student_level='PHD')
     return {'current_info': current_info}
 
 
 @register.inclusion_tag('members/alumni_info.html')
 def get_alumni_info():
-    alumni_info = CustomUser.objects.filter(user_role='student', status='Alumni', student_level='Master')
+    alumni_info = CustomUser.objects.filter(status='Alumni', student_level='Master')
     return {'alumni_info': alumni_info}
 
 
 @register.inclusion_tag('members/alumni_phd_info.html')
 def get_alumni_phd_info():
-    alumni_info = CustomUser.objects.filter(user_role='student', status='Alumni', student_level='PHD')
+    alumni_info = CustomUser.objects.filter(status='Alumni', student_level='PHD')
     return {'alumni_info': alumni_info}

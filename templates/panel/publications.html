@@ -12,7 +12,7 @@
                             <h3 class="f_s_25 f_w_700 dark_text mr_30">Dashboard</h3>
                             <ol class="breadcrumb page_bradcam mb-0">
                                 <li class="breadcrumb-item"><a href="{% url 'panel:panel_home' %}">Home</a></li>
-                                <li class="breadcrumb-item active">Admin List</li>
+                                <li class="breadcrumb-item active">Publications</li>
                             </ol>
                         </div>
                     </div>
@@ -24,12 +24,7 @@
                         <div class="white_card_body">
                             <div class="QA_section">
                                 <div class="white_box_tittle list_header">
-                                    <h4>Admin List </h4>
-                                    <div class="add_button ms-2">
-                                        <a href="{% url 'panel:user_list' %}" data-toggle="modal"
-                                           data-target="#addcategory"
-                                           class="btn_1">add admin</a>
-                                    </div>
+                                    <h4>Publications</h4>
                                     <div class="box_right d-flex lms_block">
                                         <div class="serach_field_2">
                                             <div class="search_inner">
@@ -42,7 +37,8 @@
                                             </div>
                                         </div>
                                         <div class="add_button ms-2">
-                                            <a href="#" data-toggle="modal" data-target="#addcategory" class="btn_1">search</a>
+                                            <a href="#" data-toggle="modal" data-target="#addcategory"
+                                               class="btn_1">search</a>
                                         </div>
                                     </div>
                                 </div>
@@ -51,38 +47,26 @@
                                     <table class="table lms_table_active ">
                                         <thead>
                                         <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">User</th>
-                                            <th scope="col">Username</th>
-                                            <th scope="col">Email Address</th>
-                                            <th scope="col">Role</th>
-                                            <th scope="col">Status</th>
-                                            <th scope="col">Action</th>
+                                            {#                                            <th scope="col">#</th>#}
+                                            <th scope="col">Title</th>
+                                            <th scope="col">Author</th>
+                                            <th scope="col">publish</th>
+                                            <th scope="col">Edite</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {% for admin in admins %}
+                                        {% for pub in pubs %}
                                             <tr>
-                                                <th scope="row"><a href="#" class="question_content"> 1 </a></th>
-                                                <td>{{ admin.full_name }}</td>
-                                                <td>{{ admin.username }}</td>
-                                                <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                       data-cfemail="d8afb7aab3ece8e198bfb5b9b1b4f6bbb7b5">{{ admin.email }}</a>
-                                                </td>
-                                                <td><a href="#">Admin</a></td>
-                                                {% if admin.status == 'current' %}
-                                                    <td><a href="#" class="status_btn">current</a></td>
-                                                {% else %}
-                                                    <td><a href="#" class="status_btn"
-                                                           style="background: #ff3b00; ">Alumni</a>
-                                                    </td>
-                                                {% endif %}
+                                                <td>{{ pub.title }}</td>
+                                                <td>{{ pub.author }}</td>
+                                                <td>{{ pub.published_at }}</td>
                                                 <td>
                                                     <div class="action_btns d-flex">
-                                                        <a href="{% url 'panel:un_role' admin.id %}" class=" mb-2 bg-secondary ps-3 pe-3 pt-2 pb-2 rounded d-inline-block">Take a role</a>
-                                                        <a href="{% url 'panel:edite_user' admin.id %}"
-                                                           class="action_btn mr_10"> <i
+                                                        <a href="{% url 'panel:publication_update' pub.id %}" class="action_btn mr_10"> <i
                                                                 class="far fa-edit"></i>
+                                                        </a>
+                                                        <a href="{% url 'panel:publication_delete' pub.id %}"
+                                                           class="action_btn"> <i class="fas fa-trash"></i>
                                                         </a>
                                                     </div>
                                                 </td>
@@ -100,4 +84,7 @@
     </div>
 
 
+
 {% endblock %}
+
+
