@@ -22,9 +22,14 @@ class LoginView(View):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 if user.professor_verification:
-                    login(request, user)
-                    return JsonResponse(
-                        {'status': 1, 'msg': 'Logged in successfully', 'url': reverse('panel:panel_home')})
+                    if user.user_role in ['admin', 'head']:
+                        login(request, user)
+                        return JsonResponse(
+                            {'status': 1, 'msg': 'Logged in successfully', 'url': reverse('panel:panel_home')})
+                    else:
+                        login(request, user)
+                        return JsonResponse(
+                            {'status': 1, 'msg': 'Logged in successfully', 'url': reverse('pages:home')})
                 else:
                     return JsonResponse(
                         {'status': 2, 'msg': 'still under acceptance process from ICCI lab head.'})

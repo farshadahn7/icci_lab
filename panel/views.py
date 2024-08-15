@@ -11,12 +11,28 @@ from category.models import Category
 from category.forms import CategoryForm
 from publication.models import Publication
 from publication.forms import PublicationForm
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.decorators import permission_required, login_required, user_passes_test
 
 
-class PanelView(generic.ListView):
+
+
+class AdminPermissionMixin(UserPassesTestMixin):
+    def test_func(self):
+        return self.request.user.user_role in ['admin', 'head']
+
+
+class HeadPermissionMixin(UserPassesTestMixin):
+    def test_func(self):
+        return self.request.user.user_role.lower() == "head"
+
+
+class PanelView(LoginRequiredMixin, AdminPermissionMixin, generic.ListView):
     model = CustomUser
     template_name = 'panel/index_panel.html'
     context_object_name = 'users'
+
+    # permission_required = 'publication.view_panel'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context_object_name = super().get_context_data(**kwargs)
@@ -37,7 +53,9 @@ class PanelView(generic.ListView):
         return context_object_name
 
 
-class UserListView(generic.ListView):
+class UserListView(HeadPermissionMixin, generic.ListView):
+    # permission_required = 'publication.view_panel'
+
     def get(self, request, *args, **kwargs):
         level = kwargs.get('level')
         users = CustomUser.objects.filter(professor_verification=True, student_level__in=['Bachelors', 'Master', 'PHD'],
@@ -50,8 +68,9 @@ class UserListView(generic.ListView):
         return render(request, 'panel/user_list.html', {'users': users})
 
 
-class UserUpdateView(generic.UpdateView):
+class UserUpdateView(AdminPermissionMixin, generic.UpdateView):
     model = CustomUser
+    # permission_required = 'publication.change_panel'
     fields = ['username', 'first_name', 'last_name', 'email', 'status', 'student_level', 'user_role',
               'professor_verification']
     template_name = 'panel/edite_user.html'
@@ -59,12 +78,16 @@ class UserUpdateView(generic.UpdateView):
     success_url = reverse_lazy('panel:panel_home')
 
 
+@login_required
+@user_passes_test(lambda u: u.user_role == 'head', login_url='accounts:login_view')
 def delete_user(request, user_id):
     user = CustomUser.objects.get(pk=user_id)
     user.delete()
     return redirect('panel:user_list')
 
 
+@login_required
+@user_passes_test(lambda u: u.user_role == 'head', login_url='accounts:login_view')
 def verify_user(request, user_id):
     user = get_object_or_404(CustomUser, id=user_id)
     user.professor_verification = True
@@ -72,7 +95,8 @@ def verify_user(request, user_id):
     return redirect('panel:edite_user', user.id)
 
 
-class AdminListView(generic.ListView):
+class AdminListView(AdminPermissionMixin, generic.ListView):
+    # permission_required = 'publication.view_panel'
     model = CustomUser
     template_name = 'panel/admin_list.html'
     context_object_name = 'admins'
@@ -84,6 +108,8 @@ class AdminListView(generic.ListView):
         return admins
 
 
+@login_required
+@user_passes_test(lambda u: u.user_role == 'head', login_url='accounts:login_view')
 def make_admin(request, user_id):
     user = get_object_or_404(CustomUser, pk=user_id)
     user.user_role = 'admin'
@@ -91,6 +117,8 @@ def make_admin(request, user_id):
     return redirect('panel:admin_list')
 
 
+@login_required
+@user_passes_test(lambda u: u.user_role == 'head', login_url='accounts:login_view')
 def un_role(request, user_id):
     user = get_object_or_404(CustomUser, pk=user_id)
     user.user_role = 'student'
@@ -98,13 +126,15 @@ def un_role(request, user_id):
     return redirect('panel:admin_list')
 
 
-class PostListView(generic.ListView):
+class PostListView(AdminPermissionMixin, generic.ListView):
+    # permission_required = 'publication.view_panel'
     model = Post
     template_name = 'panel/posts.html'
     context_object_name = 'posts'
 
 
-class NewPostView(generic.CreateView):
+class NewPostView(AdminPermissionMixin, generic.CreateView):
+    # permission_required = 'publication.view_panel'
     model = Post
     form_class = PostForm
     template_name = 'panel/new_post.html'
@@ -115,6 +145,8 @@ class NewPostView(generic.CreateView):
         return super().form_valid(form)
 
 
+@login_required
+@user_passes_test(lambda u: u.user_role in ['head', 'admin'], login_url='accounts:login_view')
 def update_post(request, pk):
     post = Post.objects.filter(pk=pk).first()
     category = Category.objects.all()
@@ -130,17 +162,19 @@ def update_post(request, pk):
         return render(request, template_name='panel/new_post.html', context=context)
 
 
+@login_required
+@user_passes_test(lambda u: u.user_role in ['head', 'admin'], login_url='accounts:login_view')
 def delete_post(request, post_id):
     post = Post.objects.get(pk=post_id)
     post.delete()
     return redirect('panel:post_lists')
 
 
-class ProfileView(generic.TemplateView):
+class ProfileView(LoginRequiredMixin, generic.TemplateView):
     template_name = 'panel/profile.html'
 
 
-class ProfileUpdateView(generic.UpdateView):
+class ProfileUpdateView(LoginRequiredMixin, generic.UpdateView):
     def get(self, request, *args, **kwargs):
         user_id = kwargs.get('pk')
         user = CustomUser.objects.get(pk=user_id)
@@ -157,53 +191,63 @@ class ProfileUpdateView(generic.UpdateView):
             return redirect('panel:profile')
 
 
-class CategoryCreateView(generic.CreateView):
+class CategoryCreateView(AdminPermissionMixin, generic.CreateView):
     model = Category
+    # permission_required = 'publication.view_panel'
     form_class = CategoryForm
     template_name = 'panel/new_category.html'
     success_url = reverse_lazy('panel:category_list')
 
 
-class CategoryListView(generic.ListView):
+class CategoryListView(AdminPermissionMixin, generic.ListView):
     model = Category
+    # permission_required = 'publication.view_panel'
     template_name = 'panel/categories.html'
     context_object_name = 'cats'
 
 
+@login_required
+@user_passes_test(lambda u: u.user_role in ['head', 'admin'], login_url='accounts:login_view')
 def delete_category(request, category_id):
     category = Category.objects.get(pk=category_id)
     category.delete()
     return redirect('panel:category_list')
 
 
-class CategoryUpdateView(generic.UpdateView):
+class CategoryUpdateView(AdminPermissionMixin, generic.UpdateView):
     model = Category
     form_class = CategoryForm
+    # permission_required = 'publication.view_panel'
     template_name = 'panel/new_category.html'
     context_object_name = 'cat'
     success_url = reverse_lazy('panel:category_list')
 
 
-class PublicationListView(generic.ListView):
+class PublicationListView(AdminPermissionMixin, generic.ListView):
+    # permission_required = 'publication.view_panel'
     model = Publication
     template_name = 'panel/publications.html'
     context_object_name = 'pubs'
 
 
+@login_required
+@user_passes_test(lambda u: u.user_role in ['head', 'admin'], login_url='accounts:login_view')
 def delete_publication(request, pub_id):
     pub = Publication.objects.get(pk=pub_id)
     pub.delete()
     return redirect('panel:publication_list')
 
 
-class PublicationCreateView(generic.CreateView):
+class PublicationCreateView(AdminPermissionMixin, generic.CreateView):
+    # permission_required = 'publication.view_panel'
     model = Publication
     form_class = PublicationForm
     template_name = 'panel/new_publication.html'
     success_url = reverse_lazy('panel:publication_list')
 
 
-class PublicationUpdateView(generic.UpdateView):
+class PublicationUpdateView(AdminPermissionMixin, generic.UpdateView):
+    # permission_required = 'publication.view_panel'
     model = Publication
     form_class = PublicationForm
     template_name = 'panel/new_publication.html'

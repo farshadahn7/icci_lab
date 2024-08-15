@@ -54,91 +54,105 @@
         </div>
     </div>
     <ul id="sidebar_menu">
-        <li class>
-            <a class="has-arrow" href="{% url 'panel:panel_home' %}" aria-expanded="false">
-                <div class="nav_icon_small">
-                    <img src="{% static 'panel/img/menu-icon/dashboard.svg' %}" alt>
-                </div>
-                <div class="nav_title">
-                    <span>Summary </span>
-                </div>
-            </a>
-        </li>
+        {% if user.user_role == 'admin' or user.user_role == 'head' %}
+            <li class>
+                <a class="has-arrow" href="{% url 'panel:panel_home' %}" aria-expanded="false">
+                    <div class="nav_icon_small">
+                        <img src="{% static 'panel/img/menu-icon/dashboard.svg' %}" alt>
+                    </div>
+                    <div class="nav_title">
+                        <span>Summary </span>
+                    </div>
+                </a>
+            </li>
 
-        <li class>
-            <a class="has-arrow" href="{% url 'panel:profile' user.id %}" aria-expanded="false">
-                <div class="nav_icon_small">
-                    <img src="{% static 'panel/img/menu-icon/5.svg' %}" alt>
-                </div>
-                <div class="nav_title">
-                    <span>Profile</span>
-                </div>
-            </a>
-        </li>
-        <li class>
-            <a class="has-arrow" href="{% url 'panel:admin_list' %}" aria-expanded="false">
-                <div class="nav_icon_small">
-                    <img src="{% static 'panel/img/menu-icon/4.svg' %}" alt>
-                </div>
-                <div class="nav_title">
-                    <span>Admins</span>
-                </div>
-            </a>
-        </li>
-        <li class>
-            <a class="has-arrow" href="{% url 'panel:user_list' %}" aria-expanded="false">
-                <div class="nav_icon_small">
-                    <img src="{% static 'panel/img/menu-icon/5.svg' %}" alt>
-                </div>
-                <div class="nav_title">
-                    <span>Users</span>
-                </div>
-            </a>
+            <li class>
+                <a class="has-arrow" href="{% url 'panel:profile' user.id %}" aria-expanded="false">
+                    <div class="nav_icon_small">
+                        <img src="{% static 'panel/img/menu-icon/5.svg' %}" alt>
+                    </div>
+                    <div class="nav_title">
+                        <span>Profile</span>
+                    </div>
+                </a>
+            </li>
+            {% if user.user_role == 'head' %}
+                <li class>
+                    <a class="has-arrow" href="{% url 'panel:admin_list' %}" aria-expanded="false">
+                        <div class="nav_icon_small">
+                            <img src="{% static 'panel/img/menu-icon/4.svg' %}" alt>
+                        </div>
+                        <div class="nav_title">
+                            <span>Admins</span>
+                        </div>
+                    </a>
+                </li>
+                <li class>
+                    <a class="has-arrow" href="{% url 'panel:user_list' %}" aria-expanded="false">
+                        <div class="nav_icon_small">
+                            <img src="{% static 'panel/img/menu-icon/5.svg' %}" alt>
+                        </div>
+                        <div class="nav_title">
+                            <span>Users</span>
+                        </div>
+                    </a>
 
-        </li>
-        <li class>
-            <a class="has-arrow" href="#" aria-expanded="false">
-                <div class="nav_icon_small">
-                    <img src="{% static 'panel/img/menu-icon/11.svg' %}" alt>
-                </div>
-                <div class="nav_title">
-                    <span>post</span>
-                </div>
-            </a>
-            <ul>
-                <li><a href="{% url 'panel:post_lists' %}">posts</a></li>
-                <li><a href="{% url 'panel:new_post' %}">New post</a></li>
-            </ul>
-        </li>
-        <li class>
-            <a class="has-arrow" href="#" aria-expanded="false">
-                <div class="nav_icon_small">
-                    <img src="{% static 'panel/img/menu-icon/11.svg' %}" alt>
-                </div>
-                <div class="nav_title">
-                    <span>category</span>
-                </div>
-            </a>
-            <ul>
-                <li><a href="{% url 'panel:category_list' %}">categories</a></li>
-                <li><a href="{% url 'panel:new_category' %}">New category</a></li>
-            </ul>
-        </li>
-        <li class>
-            <a class="has-arrow" href="#" aria-expanded="false">
-                <div class="nav_icon_small">
-                    <img src="{% static 'panel/img/menu-icon/11.svg' %}" alt>
-                </div>
-                <div class="nav_title">
-                    <span>publication</span>
-                </div>
-            </a>
-            <ul>
-                <li><a href="{% url 'panel:publication_list' %}">publications</a></li>
-                <li><a href="{% url 'panel:new_publication' %}">New article</a></li>
-            </ul>
-        </li>
-
+                </li>
+            {% endif %}
+            <li class>
+                <a class="has-arrow" href="#" aria-expanded="false">
+                    <div class="nav_icon_small">
+                        <img src="{% static 'panel/img/menu-icon/11.svg' %}" alt>
+                    </div>
+                    <div class="nav_title">
+                        <span>post</span>
+                    </div>
+                </a>
+                <ul>
+                    <li><a href="{% url 'panel:post_lists' %}">posts</a></li>
+                    <li><a href="{% url 'panel:new_post' %}">New post</a></li>
+                </ul>
+            </li>
+            <li class>
+                <a class="has-arrow" href="#" aria-expanded="false">
+                    <div class="nav_icon_small">
+                        <img src="{% static 'panel/img/menu-icon/11.svg' %}" alt>
+                    </div>
+                    <div class="nav_title">
+                        <span>category</span>
+                    </div>
+                </a>
+                <ul>
+                    <li><a href="{% url 'panel:category_list' %}">categories</a></li>
+                    <li><a href="{% url 'panel:new_category' %}">New category</a></li>
+                </ul>
+            </li>
+            <li class>
+                <a class="has-arrow" href="#" aria-expanded="false">
+                    <div class="nav_icon_small">
+                        <img src="{% static 'panel/img/menu-icon/11.svg' %}" alt>
+                    </div>
+                    <div class="nav_title">
+                        <span>publication</span>
+                    </div>
+                </a>
+                <ul>
+                    <li><a href="{% url 'panel:publication_list' %}">publications</a></li>
+                    <li><a href="{% url 'panel:new_publication' %}">New article</a></li>
+                </ul>
+            </li>
+        {% else %}
+            <li class>
+                <a class="has-arrow" href="{% url 'panel:profile' user.id %}" aria-expanded="false">
+                    <div class="nav_icon_small">
+                        <img src="{% static 'panel/img/menu-icon/5.svg' %}" alt>
+                    </div>
+                    <div class="nav_title">
+                        <span>Profile</span>
+                    </div>
+                </a>
+            </li>
+        {% endif %}
     </ul>
 </nav>
 <section class="main_content dashboard_part large_header_bg">
@@ -155,7 +169,10 @@
                     </div>
                     <div class="header_right d-flex justify-content-between align-items-center">
                         <div class="profile_info">
-                            <img src="{% if user.user_image %}{{ user.user_image.url }}{% else %}{% static 'img/user/avatar.jpg' %}{% endif %}" alt="{{ user.full_name }}">
+                            <img src="
+                                    
+                                    {% if user.user_image %}{{ user.user_image.url }}{% else %}{% static 'img/user/avatar.jpg' %}{% endif %}"
+                                 alt="{{ user.full_name }}">
                             <div class="profile_info_iner">
                                 <div class="profile_author_name">
                                     <h5>{{ user.full_name }}</h5>

@@ -126,9 +126,15 @@
                                                                             aria-hidden="true"></i></a>
                                                 <ul class="dropdown-menu ">
                                                     {% if user.is_authenticated %}
-                                                        <li><a class="dropdown-item "
-                                                               href="{% url 'panel:panel_home' %}"> <i
-                                                                class="fas fa-user"></i> profile </a></li>
+                                                        {% if user.user_role == 'admin' %}
+                                                            <li><a class="dropdown-item "
+                                                                   href="{% url 'panel:panel_home' %}"> <i
+                                                                    class="fas fa-user"></i> profile </a></li>
+                                                        {% else %}
+                                                            <li><a class="dropdown-item "
+                                                                   href="{% url 'panel:profile' user.id %}"> <i
+                                                                    class="fas fa-user"></i> profile </a></li>
+                                                        {% endif %}
                                                         <li><a class="dropdown-item "
                                                                href="{% url 'accounts:logout_view' %}"> <i
                                                                 class="fas fa-sign-out"></i> log out </a></li>
