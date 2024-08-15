@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from accounts.forms import CustomUserChangeForm
 from accounts.models import CustomUser
-from accounts.forms import CustomUserChangeForm
+from accounts.forms import CustomUserChangeForm, CustomUserForm
 from posts.forms import PostForm
 from posts.models import Post
 from category.models import Category
@@ -15,8 +15,6 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.contrib.auth.decorators import permission_required, login_required, user_passes_test
 
 
-
-
 class AdminPermissionMixin(UserPassesTestMixin):
     def test_func(self):
         return self.request.user.user_role in ['admin', 'head']
@@ -25,6 +23,11 @@ class AdminPermissionMixin(UserPassesTestMixin):
 class HeadPermissionMixin(UserPassesTestMixin):
     def test_func(self):
         return self.request.user.user_role.lower() == "head"
+
+
+class PermissionMixin(UserPassesTestMixin):
+    def test_func(self):
+        return self.request.user.user_role.lower() in ["head", 'admin', 'student']
 
 
 class PanelView(LoginRequiredMixin, AdminPermissionMixin, generic.ListView):
@@ -185,10 +188,10 @@ class ProfileUpdateView(LoginRequiredMixin, generic.UpdateView):
     def post(self, request, *args, **kwargs):
         user_id = kwargs.get('pk')
         user = CustomUser.objects.get(pk=user_id)
-        form = CustomUserChangeForm(request.POST, instance=user)
+        form = CustomUserForm(request.POST, instance=user)
         if form.is_valid():
             form.save()
-            return redirect('panel:profile')
+            return redirect('panel:profile', user.id)
 
 
 class CategoryCreateView(AdminPermissionMixin, generic.CreateView):

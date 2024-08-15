@@ -29,6 +29,13 @@ class CustomUserChangeForm(UserChangeForm):
         fields = UserChangeForm.Meta.fields
 
 
+class CustomUserForm(forms.ModelForm):
+    class Meta:
+        model = CustomUser
+        fields = ['username', 'first_name', 'last_name', 'email', 'position', 'user_image', 'linkedin_url',
+                  'telegram_url', 'bio']
+
+
 class LoginForm(forms.Form):
     login = forms.CharField(max_length=128)
     password = forms.CharField(
