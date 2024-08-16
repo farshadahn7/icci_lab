@@ -5,6 +5,8 @@ from django.http import JsonResponse
 from pages.models import HomeSliderImage
 from posts.models import Post
 
+from pages.models import GalleryImageCategory, GalleryImage
+
 
 class Home(generic.ListView):
     model = HomeSliderImage
@@ -14,4 +16,15 @@ class Home(generic.ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context_object_name = super().get_context_data(**kwargs)
         context_object_name['posts'] = Post.objects.filter(status=True)
+        return context_object_name
+
+
+class GalleryView(generic.ListView):
+    template_name = 'gallery.html'
+    model = GalleryImage
+    context_object_name = 'images'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context_object_name = super().get_context_data(**kwargs)
+        context_object_name['cats'] = GalleryImageCategory.objects.all()
         return context_object_name

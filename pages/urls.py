@@ -5,4 +5,5 @@ app_name = 'pages'
 
 urlpatterns = [
     path('', views.Home.as_view(), name='home'),
+    path('gallery/', views.GalleryView.as_view(), name='gallery'),
 ]
