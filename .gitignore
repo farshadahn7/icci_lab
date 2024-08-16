@@ -4,3 +4,5 @@ __pycache__/
 venv
 new_venv
 /.idea
+./.idea
+./idea
