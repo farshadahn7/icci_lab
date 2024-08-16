@@ -26,4 +26,8 @@ urlpatterns = [
     path('create_publication/', views.PublicationCreateView.as_view(), name='new_publication'),
     path('delete_publication/<int:pub_id>', views.delete_publication, name='publication_delete'),
     path('update_publication/<int:pk>', views.PublicationUpdateView.as_view(), name='publication_update'),
+    path('gallery/', views.GalleryListView.as_view(), name='gallery'),
+    path('add_image/', views.GalleryCreateView.as_view(), name='create_gallery'),
+    path('update_image/<int:pk>', views.GalleryUpdateView.as_view(), name='edite_gallery'),
+    path('delete_image/<int:pk>', views.delete_gallery, name='delete_gallery'),
 ]

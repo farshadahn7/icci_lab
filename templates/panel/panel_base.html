@@ -145,6 +145,20 @@
                     <li><a href="{% url 'panel:new_publication' %}">New article</a></li>
                 </ul>
             </li>
+            <li class>
+                <a class="" href="#" aria-expanded="false">
+                    <div class="nav_icon_small">
+                        <img src="{% static 'panel/img/menu-icon/5.svg' %}" alt>
+                    </div>
+                    <div class="nav_title">
+                        <span>Gallery</span>
+                    </div>
+                </a>
+                <ul>
+                    <li><a href="{% url 'panel:gallery' %}">Galleries</a></li>
+                    <li><a href="{% url 'panel:create_gallery' %}">Add Image</a></li>
+                </ul>
+            </li>
         {% else %}
             <li class>
                 <a class="" href="#" aria-expanded="false">
@@ -158,6 +172,20 @@
                 <ul>
                     <li><a href="{% url 'panel:profile' user.id %}">Profile</a></li>
                     <li><a href="{% url 'password_change' %}">Change password</a></li>
+                </ul>
+            </li>
+            <li class>
+                <a class="" href="#" aria-expanded="false">
+                    <div class="nav_icon_small">
+                        <img src="{% static 'panel/img/menu-icon/5.svg' %}" alt>
+                    </div>
+                    <div class="nav_title">
+                        <span>Gallery</span>
+                    </div>
+                </a>
+                <ul>
+                    <li><a href="{% url 'panel:gallery' %}">Galleries</a></li>
+                    <li><a href="{% url 'panel:create_gallery' %}">Add Image</a></li>
                 </ul>
             </li>
         {% endif %}

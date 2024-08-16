@@ -13,6 +13,8 @@ from publication.models import Publication
 from publication.forms import PublicationForm
 from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import permission_required, login_required, user_passes_test
+from pages.models import GalleryImage, GalleryImageCategory
+from pages.forms import ImageGalleryForm
 
 
 class AdminPermissionMixin(UserPassesTestMixin):
@@ -256,3 +258,41 @@ class PublicationUpdateView(AdminPermissionMixin, generic.UpdateView):
     template_name = 'panel/new_publication.html'
     context_object_name = 'pub'
     success_url = reverse_lazy('panel:publication_list')
+
+
+class GalleryListView(LoginRequiredMixin, generic.ListView):
+    model = GalleryImage
+    template_name = 'panel/galleries.html'
+    context_object_name = 'galleries'
+
+
+class GalleryCreateView(LoginRequiredMixin, generic.CreateView):
+    model = GalleryImage
+    form_class = ImageGalleryForm
+    template_name = 'panel/new_gallery.html'
+    context_object_name = 'gallery'
+    success_url = reverse_lazy('panel:gallery')
+
+    def get_context_data(self, **kwargs):
+        context_object_name = super().get_context_data(**kwargs)
+        context_object_name['cats'] = GalleryImageCategory.objects.all()
+        return context_object_name
+
+
+class GalleryUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = GalleryImage
+    form_class = ImageGalleryForm
+    template_name = 'panel/new_gallery.html'
+    context_object_name = 'gallery'
+    success_url = reverse_lazy('panel:gallery')
+
+    def get_context_data(self, **kwargs):
+        context_object_name = super().get_context_data(**kwargs)
+        context_object_name['cats'] = GalleryImageCategory.objects.all()
+        return context_object_name
+
+
+def delete_gallery(request, pk):
+    gallery = get_object_or_404(GalleryImage, pk=pk)
+    gallery.delete()
+    return redirect('panel:gallery')
