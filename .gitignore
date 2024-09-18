@@ -6,3 +6,4 @@ new_venv
 /.idea
 ./.idea
 ./idea
+db.sqlite3
