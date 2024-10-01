@@ -54,7 +54,7 @@
         </div>
     </div>
     <ul id="sidebar_menu">
-        {% if user.user_role == 'admin' or user.user_role == 'head' %}
+        {% if user.user_role == 'admin' or  user.user_role == 'head' %}
             <li class>
                 <a class="" href="{% url 'panel:panel_home' %}" aria-expanded="false">
                     <div class="nav_icon_small">
@@ -80,6 +80,17 @@
                     <li><a href="{% url 'password_change' %}">Change password</a></li>
                 </ul>
             </li>
+            <li class>
+                    <a class="" href="{% url 'panel:user_list' %}" aria-expanded="false">
+                        <div class="nav_icon_small">
+                            <img src="{% static 'panel/img/menu-icon/5.svg' %}" alt>
+                        </div>
+                        <div class="nav_title">
+                            <span>Users</span>
+                        </div>
+                    </a>
+
+                </li>
             {% if user.user_role == 'head' %}
                 <li class>
                     <a class="" href="{% url 'panel:admin_list' %}" aria-expanded="false">
@@ -90,17 +101,6 @@
                             <span>Admins</span>
                         </div>
                     </a>
-                </li>
-                <li class>
-                    <a class="" href="{% url 'panel:user_list' %}" aria-expanded="false">
-                        <div class="nav_icon_small">
-                            <img src="{% static 'panel/img/menu-icon/5.svg' %}" alt>
-                        </div>
-                        <div class="nav_title">
-                            <span>Users</span>
-                        </div>
-                    </a>
-
                 </li>
             {% endif %}
             <li class>

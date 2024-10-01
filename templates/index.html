@@ -79,7 +79,7 @@
                                                 </h5>
 
                                                 <div class="post-exerpt">
-                                                    <p>{{ post.content|truncatewords:15 }} </p>
+                                                    <p>{{ post.content|truncatewords:15|safe }} </p>
                                                 </div>
 
                                                 <ul class="entry-meta list-inline">

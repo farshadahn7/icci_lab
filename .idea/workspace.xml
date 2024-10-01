@@ -4,81 +4,75 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b1762ef6-8a0f-4fbd-b029-c1591a510133" name="Changes" comment="">
+    <list default="true" id="fbc35ae1-6cb3-4fc4-9734-0b86be2b048b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/icci_lab.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/icci_lab.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pages/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/pages/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/panel/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/panel/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/panel/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/_base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/latest_posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/latest_posts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/members/alumni_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/members/alumni_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/members/alumni_phd_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/members/alumni_phd_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/members/current_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/members/current_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/members/current_phd_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/members/current_phd_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/members/head_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/members/head_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/panel/edite_user.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/panel/edite_user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/panel/galleries.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/panel/galleries.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/panel/index_panel.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/panel/index_panel.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/panel/panel_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/panel/panel_base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/panel/profile_update.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/panel/profile_update.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/panel/user_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/panel/user_list.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
-    <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="HTML File" />
-        <option value="JavaScript File" />
-        <option value="Python Script" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;farshadahn7&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "farshadahn7"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/farshadahn7/icci_lab.git&quot;,
-    &quot;accountId&quot;: &quot;67d9df4d-0ad8-4ab5-908f-6197e8ff7aed&quot;
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/farshadahn7/icci_lab.git",
+    "accountId": "99fb78d5-8e06-4689-920b-ca889c95283e"
   }
-}</component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 8
-}</component>
-  <component name="ProjectId" id="2kCB7qI3JI5JskEd6yP7kpGcy5O" />
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2mp42ePZcUeunkL0AM6I1MNXovO" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Django Server.icci_lab.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenDjangoStructureViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
-    &quot;django.template.preview.state&quot;: &quot;SHOW_EDITOR&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/icci_web/icci_lab&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Django Server.icci_lab.executor": "Run",
+    "RunOnceActivity.OpenDjangoStructureViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "django.template.preview.state": "SHOW_EDITOR",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/mine/icci/icci_lab",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Farshad\Desktop\lab_icci\icci_lab\templates\panel" />
-      <recent name="C:\Users\Farshad\Desktop\lab_icci\icci_lab\templates" />
-      <recent name="C:\Users\Farshad\Desktop\lab_icci\icci_lab\assets\panel" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Farshad\Desktop\lab_icci\icci_lab\assets\panel\css" />
-    </key>
-  </component>
+}]]></component>
   <component name="RunManager">
     <configuration name="icci_lab" type="Python.DjangoServer" factoryName="Django server">
       <module name="icci_lab" />
@@ -109,35 +103,20 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-7c0b70fcd90d-JavaScript-PY-242.21829.153" />
-        <option value="bundled-python-sdk-464836ebc622-b74155a9e76b-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.21829.153" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.18034.82" />
+        <option value="bundled-python-sdk-975db3bf15a3-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.18034.82" />
       </set>
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b1762ef6-8a0f-4fbd-b029-c1591a510133" name="Changes" comment="" />
-      <created>1722777516521</created>
+      <changelist id="fbc35ae1-6cb3-4fc4-9734-0b86be2b048b" name="Changes" comment="" />
+      <created>1727759977676</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1722777516521</updated>
-      <workItem from="1722777518395" duration="6309000" />
-      <workItem from="1722875276742" duration="576000" />
-      <workItem from="1722949497191" duration="4946000" />
-      <workItem from="1723146944968" duration="92000" />
-      <workItem from="1723191252785" duration="23731000" />
-      <workItem from="1723304006235" duration="8868000" />
-      <workItem from="1723464575915" duration="11718000" />
-      <workItem from="1723481081080" duration="45000" />
-      <workItem from="1723483965130" duration="2355000" />
-      <workItem from="1723560392221" duration="633000" />
-      <workItem from="1723613441652" duration="2313000" />
-      <workItem from="1723641836468" duration="4448000" />
-      <workItem from="1723696799670" duration="265000" />
-      <workItem from="1723781659636" duration="13941000" />
-      <workItem from="1726673223435" duration="1266000" />
-      <workItem from="1726674620290" duration="1060000" />
+      <updated>1727759977676</updated>
+      <workItem from="1727759978718" duration="10081000" />
     </task>
     <servers />
   </component>

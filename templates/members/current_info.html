@@ -4,14 +4,17 @@
         <div class="widget">
             <div class="widget-author">
                 <div class="author-img">
-                    <a href="author.html" class="image">
-                        <img src="{{ current_member.user_image.url }}" alt="{{ current_member.username }}">
+                    <a href="#" class="image">
+                        <img src="{{ current_member.user_image.url }}" alt="{{ current_member.full_name }}">
                     </a>
                 </div>
                 <div class="author-content">
-                    <h6 class="name">{{ current_member.username }}</h6>
+                    <h6 class="name">{{ current_member.full_name }}</h6>
+                    <p class="position">
+                        {{ current_member.position }}
+                    </p>
                     <p class="bio">
-                        {{ current_member.bio }}
+                        <strong>{{ current_member.bio }}</strong>
                     </p>
                     <div class="social-media">
                         <ul class="list-inline">

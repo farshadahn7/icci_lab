@@ -108,7 +108,7 @@
                                     {#                                    <div class="user_info">#}
                                     {#                                        member#}
                                     {#                                    </div>#}
-                                    {% if user.user_role == 'head' %}
+                                    {% if user.user_role == 'head' or 'admin' %}
                                         <div class="action_btns d-flex">
                                             <a href="{% url 'panel:verify_user' new_user.id %}"
                                                class="action_btn mr_10"> Verify </a>

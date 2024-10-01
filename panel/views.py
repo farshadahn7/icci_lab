@@ -4,7 +4,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from accounts.forms import CustomUserChangeForm
 from accounts.models import CustomUser
-from accounts.forms import CustomUserChangeForm, CustomUserForm
+from accounts.forms import CustomUserChangeForm, CustomUserForm, UserProfileForm
 from posts.forms import PostForm
 from posts.models import Post
 from category.models import Category
@@ -37,8 +37,6 @@ class PanelView(LoginRequiredMixin, AdminPermissionMixin, generic.ListView):
     template_name = 'panel/index_panel.html'
     context_object_name = 'users'
 
-    # permission_required = 'publication.view_panel'
-
     def get_context_data(self, *, object_list=None, **kwargs):
         context_object_name = super().get_context_data(**kwargs)
         user_data = CustomUser.objects.all()
@@ -58,8 +56,7 @@ class PanelView(LoginRequiredMixin, AdminPermissionMixin, generic.ListView):
         return context_object_name
 
 
-class UserListView(HeadPermissionMixin, generic.ListView):
-    # permission_required = 'publication.view_panel'
+class UserListView(AdminPermissionMixin, generic.ListView):
 
     def get(self, request, *args, **kwargs):
         level = kwargs.get('level')
@@ -75,11 +72,9 @@ class UserListView(HeadPermissionMixin, generic.ListView):
 
 class UserUpdateView(AdminPermissionMixin, generic.UpdateView):
     model = CustomUser
-    # permission_required = 'publication.change_panel'
-    fields = ['username', 'first_name', 'last_name', 'email', 'status', 'student_level', 'user_role',
-              'professor_verification']
+    fields = ['status', 'student_level', 'user_role','professor_verification']
     template_name = 'panel/edite_user.html'
-    context_object_name = 'user'
+    context_object_name = 'student_user'
     success_url = reverse_lazy('panel:panel_home')
 
 
@@ -92,7 +87,7 @@ def delete_user(request, user_id):
 
 
 @login_required
-@user_passes_test(lambda u: u.user_role == 'head', login_url='accounts:login_view')
+@user_passes_test(lambda u: u.user_role == 'admin' or 'head', login_url='accounts:login_view')
 def verify_user(request, user_id):
     user = get_object_or_404(CustomUser, id=user_id)
     user.professor_verification = True
@@ -100,7 +95,7 @@ def verify_user(request, user_id):
     return redirect('panel:edite_user', user.id)
 
 
-class AdminListView(AdminPermissionMixin, generic.ListView):
+class AdminListView(HeadPermissionMixin, generic.ListView):
     # permission_required = 'publication.view_panel'
     model = CustomUser
     template_name = 'panel/admin_list.html'
@@ -139,9 +134,9 @@ class PostListView(AdminPermissionMixin, generic.ListView):
 
 
 class NewPostView(AdminPermissionMixin, generic.CreateView):
-    # permission_required = 'publication.view_panel'
     model = Post
-    form_class = PostForm
+    # form_class = PostForm
+    fields = ['title', 'content', 'image', 'category', 'status']
     template_name = 'panel/new_post.html'
     success_url = reverse_lazy('panel:post_lists')
 
@@ -150,21 +145,30 @@ class NewPostView(AdminPermissionMixin, generic.CreateView):
         return super().form_valid(form)
 
 
-@login_required
-@user_passes_test(lambda u: u.user_role in ['head', 'admin'], login_url='accounts:login_view')
-def update_post(request, pk):
-    post = Post.objects.filter(pk=pk).first()
-    category = Category.objects.all()
-    form = PostForm(request.POST or None, instance=post)
-    if request.method == 'POST':
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.save()
-            return redirect('panel:post_lists')
-    else:
-        context = {'form': form, 'category': category}
-        return render(request, template_name='panel/new_post.html', context=context)
+# @login_required
+# @user_passes_test(lambda u: u.user_role in ['head', 'admin'], login_url='accounts:login_view')
+# def update_post(request, pk):
+#     post = Post.objects.filter(pk=pk).first()
+#     category = Category.objects.all()
+#     form = PostForm(request.POST or None, instance=post)
+#     if request.method == 'POST':
+#         if form.is_valid():
+#             post = form.save(commit=False)
+#             post.author = request.user
+#             post.save()
+#             return redirect('panel:post_lists')
+#     else:
+#         context = {'form': form, 'category': category}
+#         return render(request, template_name='panel/new_post.html', context=context)
+
+class UpdatePostView(AdminPermissionMixin, generic.UpdateView):
+    model = Post
+    fields = ['title', 'content', 'image', 'category', 'status']
+    # form_class = PostForm
+    template_name = 'panel/new_post.html'
+
+    def get_success_url(self):
+        return reverse_lazy('panel:post_lists')
 
 
 @login_required
@@ -180,20 +184,29 @@ class ProfileView(LoginRequiredMixin, generic.TemplateView):
 
 
 class ProfileUpdateView(LoginRequiredMixin, generic.UpdateView):
-    def get(self, request, *args, **kwargs):
-        user_id = kwargs.get('pk')
-        user = CustomUser.objects.get(pk=user_id)
-        form = CustomUserChangeForm(instance=user)
-        context = {'form': form}
-        return render(request, template_name='panel/profile_update.html', context=context)
+    model = CustomUser
+    form = UserProfileForm
+    fields = ['username', 'first_name', 'last_name', 'email', 'user_image', 'linkedin_url', 'telegram_url', 'bio',
+              'position']
+    template_name = 'panel/profile_update.html'
 
-    def post(self, request, *args, **kwargs):
-        user_id = kwargs.get('pk')
-        user = CustomUser.objects.get(pk=user_id)
-        form = CustomUserForm(request.POST, instance=user)
-        if form.is_valid():
-            form.save()
-            return redirect('panel:profile', user.id)
+    def get_success_url(self):
+        pk = self.request.user.pk
+        return reverse_lazy('panel:profile', kwargs={'pk': pk})
+    # def get(self, request, *args, **kwargs):
+    #     user_id = kwargs.get('pk')
+    #     user = CustomUser.objects.get(pk=user_id)
+    #     form = UserProfileForm(instance=user)
+    #     context = {'form': form}
+    #     return render(request, template_name='panel/profile_update.html', context=context)
+    #
+    # def post(self, request, *args, **kwargs):
+    #     user_id = kwargs.get('pk')
+    #     user = CustomUser.objects.get(pk=user_id)
+    #     form = UserProfileForm(request.POST, instance=user)
+    #     if form.is_valid():
+    #         form.save()
+    #         return redirect('panel:profile', user.id)
 
 
 class CategoryCreateView(AdminPermissionMixin, generic.CreateView):
@@ -244,7 +257,6 @@ def delete_publication(request, pub_id):
 
 
 class PublicationCreateView(AdminPermissionMixin, generic.CreateView):
-    # permission_required = 'publication.view_panel'
     model = Publication
     form_class = PublicationForm
     template_name = 'panel/new_publication.html'
@@ -252,7 +264,6 @@ class PublicationCreateView(AdminPermissionMixin, generic.CreateView):
 
 
 class PublicationUpdateView(AdminPermissionMixin, generic.UpdateView):
-    # permission_required = 'publication.view_panel'
     model = Publication
     form_class = PublicationForm
     template_name = 'panel/new_publication.html'
@@ -272,6 +283,10 @@ class GalleryCreateView(LoginRequiredMixin, generic.CreateView):
     template_name = 'panel/new_gallery.html'
     context_object_name = 'gallery'
     success_url = reverse_lazy('panel:gallery')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
 
     def get_context_data(self, **kwargs):
         context_object_name = super().get_context_data(**kwargs)

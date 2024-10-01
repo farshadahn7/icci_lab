@@ -40,7 +40,7 @@
                                         <tbody>
                                         {% for gallery in galleries %}
                                             <tr>
-                                                <td>{{ galleries.image.url }}</td>
+                                                <td><img src="{{ gallery.image.url }}" alt="{{ gallery.category.name  }}" width="130px" height="100px"></td>
                                                 <td>{{ gallery.category.name  }}</td>
                                                 <td>
                                                     <div class="action_btns d-flex">

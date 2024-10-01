@@ -5,13 +5,16 @@
             <div class="widget-author">
                 <div class="author-img">
                     <a href="author.html" class="image">
-                        <img src="{{ current_member.user_image.url }}" alt="{{ current_member.first_name }} {{ current_member.last_name }}">
+                        <img src="{{ current_member.user_image.url }}" alt="{{ current_member.full_name }}">
                     </a>
                 </div>
                 <div class="author-content">
-                    <h6 class="name">{{ current_member.first_name }} {{ current_member.last_name }}</h6>
+                    <h6 class="name">{{ current_member.full_name }}</h6>
+                    <p class="position justify-content-between">
+                            {{ current_member.position }}
+                    </p>
                     <p class="bio justify-content-between">
-                        {{ current_member.bio }}
+                        <strong>{{ current_member.bio }}</strong>
                     </p>
                     <div class="social-media">
                         <ul class="list-inline">

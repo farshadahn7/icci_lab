@@ -15,7 +15,7 @@ class Home(generic.ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context_object_name = super().get_context_data(**kwargs)
-        context_object_name['posts'] = Post.objects.filter(status=True)
+        context_object_name['posts'] = Post.objects.filter(status=True).order_by('-created_at')
         return context_object_name
 
 

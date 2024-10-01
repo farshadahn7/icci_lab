@@ -8,11 +8,10 @@
             <li class="post-item">
                 <div class="image">
                     <a href="{% url 'posts:details' latest_post.id %}"> <img src="{{ latest_post.image.url }}"
-                                                      alt="{{ latest_post.title|truncatewords:3 }}" style="height: 60px;"></a>
+                                                      alt="{{ latest_post.title|truncatewords:3|safe }}" style="height: 60px;"></a>
                 </div>
-                <div class="count">1</div>
                 <div class="content">
-                    <p class="entry-title"><a href="{% url 'posts:details' latest_post.id %}">{{ latest_post.title|truncatewords:3 }}</a></p>
+                    <p class="entry-title"><a href="{% url 'posts:details' latest_post.id %}">{{ latest_post.title|truncatewords:3|safe }}</a></p>
                     <small class="post-date"><i class="fas fa-clock"></i> {{ latest_post.created_at|date:"M d, Y" }}
                     </small>
                 </div>

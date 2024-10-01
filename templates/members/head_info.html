@@ -2,14 +2,17 @@
 {#{% load account_tags %}#}
 <div class="widget-author">
     <div class="author-img">
-        <a href="author.html" class="image">
-            <img src="{{ head_info.user_image.url }}" alt="{{ head_info.first_name }} {{ head_info.last_name }}">
+        <a href="https://ce.aut.ac.ir/~farbeh/" class="image">
+            <img src="{{ head_info.user_image.url }}" alt="{{ head_info.full_name }}">
         </a>
     </div>
     <div class="author-content">
-        <h6 class="name"> {{ head_info.first_name }} {{ head_info.last_name }}</h6>
+        <h6 class="name"> {{ head_info.full_name }}</h6>
+        <p class="position">
+            {{ head_info.position }}
+        </p>
         <p class="bio">
-            {{ head_info.bio }}
+            <strong>{{ head_info.bio }}</strong>
         </p>
         <div class="social-media">
             <ul class="list-inline">

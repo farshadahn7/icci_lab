@@ -31,17 +31,17 @@
                             <div class="QA_section">
                                 <div class="white_box_tittle list_header">
                                     <h4>User List </h4>
-                                     <div class="add_button ms-2">
+                                    <div class="add_button ms-2">
                                         <a href="{% url 'panel:user_list' %}" data-toggle="modal"
                                            data-target="#addcategory"
                                            class="btn_1">All</a>
                                     </div>
-                                     <div class="add_button ms-2">
+                                    <div class="add_button ms-2">
                                         <a href="{% url 'panel:user_list' 'PHD' %}" data-toggle="modal"
                                            data-target="#addcategory"
                                            class="btn_1">PHD</a>
                                     </div>
-                                     <div class="add_button ms-2">
+                                    <div class="add_button ms-2">
                                         <a href="{% url 'panel:user_list' 'Master' %}" data-toggle="modal"
                                            data-target="#addcategory"
                                            class="btn_1">master</a>
@@ -83,16 +83,16 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        {% for user in users %}
+                                        {% for student in users %}
                                             <tr>
                                                 <th scope="row"><a href="#" class="question_content"> 1 </a></th>
-                                                <td>{{ user.full_name }}</td>
-                                                <td>{{ user.username }}</td>
+                                                <td>{{ student.full_name }}</td>
+                                                <td>{{ student.username }}</td>
                                                 <td><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                                                       data-cfemail="11667e637a25212851767c70787d3f727e7c">{{ user.email }}</a>
+                                                       data-cfemail="11667e637a25212851767c70787d3f727e7c">{{ student.email }}</a>
                                                 </td>
                                                 <td><a href="#">{{ user.user_role }}</a></td>
-                                                {% if user.status == 'current' %}
+                                                {% if student.status == 'current' %}
                                                     <td><a href="#" class="status_btn">current</a></td>
                                                 {% else %}
                                                     <td><a href="#" class="status_btn" style="background: #ff3b00; ">Alumni</a>
@@ -100,11 +100,19 @@
                                                 {% endif %}
                                                 <td>
                                                     <div class="action_btns d-flex">
-                                                        <a href="{% url 'panel:make_admin' user.id %}" class=" mb-2 bg-secondary ps-3 pe-3 pt-2 pb-2 rounded d-inline-block">Make Admin</a>
-                                                        <a href="{% url 'panel:edite_user' user.id %}" class="action_btn mr_10"> <i
+                                                        {% if user.user_role == 'head' %}
+                                                            <a href="{% url 'panel:make_admin' student.id %}"
+                                                               class=" mb-2 bg-secondary ps-3 pe-3 pt-2 pb-2 rounded d-inline-block">Make
+                                                                Admin</a>
+                                                        {% endif %}
+                                                        <a href="{% url 'panel:edite_user' student.id %}"
+                                                           class="action_btn mr_10"> <i
                                                                 class="far fa-edit"></i>
                                                         </a>
-                                                        <a href="{% url 'panel:delete_user' user.id %}" class="action_btn"> <i class="fas fa-trash"></i>
+                                                        {% if user.user_role == 'head' %}
+                                                            <a href="{% url 'panel:delete_user' student.id %}"
+                                                               class="action_btn"> <i class="fas fa-trash"></i>
+                                                        {% endif %}
                                                         </a>
                                                     </div>
                                                 </td>
