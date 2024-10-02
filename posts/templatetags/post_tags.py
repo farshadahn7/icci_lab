@@ -6,5 +6,5 @@ register = template.Library()
 
 @register.inclusion_tag('latest_posts.html')
 def latest_posts():
-    posts = Post.objects.order_by('-created_at')[:2]
+    posts = Post.objects.filter(status=True).order_by('-created_at')[:2]
     return {'latest_posts': posts}
