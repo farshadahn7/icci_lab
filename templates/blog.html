@@ -53,11 +53,11 @@
                                                 </div>
 
                                                 <h4 class="entry-title">
-                                                    <a href="{% url 'posts:details' post.id %}">{{ post.title|safe }}</a>
+                                                    <a href="{% url 'posts:details' post.id %}">{{ post.title|truncatewords:15|safe }}</a>
                                                 </h4>
 
                                                 <div class="post-exerpt">
-                                                    <p>{{ post.content|safe }}</p>
+                                                    <p>{{ post.content|truncatewords:20|safe }}</p>
                                                 </div>
 
                                                 <ul class="entry-meta list-inline">

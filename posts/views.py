@@ -15,7 +15,7 @@ class PostListView(ListView):
 
     def get(self, request, *args, **kwargs):
         cat_id = self.kwargs.get('cat_id')
-        posts = Post.objects.filter(status=True)
+        posts = Post.objects.filter(status=True).order_by('-created_at')
         category = Category.objects.all()
         if cat_id is not None:
             posts = posts.filter(category__id=cat_id)
