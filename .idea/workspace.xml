@@ -6,8 +6,85 @@
   <component name="ChangeListManager">
     <list default="true" id="fbc35ae1-6cb3-4fc4-9734-0b86be2b048b" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/accounts/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/accounts/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirments.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirments.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/Farbeh-micri-reviewer-award.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/IMG_20241005_102913_756.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/IMG_20241005_102913_756_MZG0aiD.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/IOT.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/avatar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/avatar_EFeRoiz.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/avatar_QUYZsQo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/avatar_USfJEgE.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/avatar_VtEKMIl.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/avatar_VtEKMIl_4AvE0yC.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/avatar_WXvHBUa.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/avatar_WXvHBUa_2LQPVGf.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/avatar_WXvHBUa_FKKpzen.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/avatar_WXvHBUa_T8OvJ78.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/avatar_snNcSti.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/date-best-paper-award-2019.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/farshid-defence.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/farshid_project.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/images.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/images_7vgJcHW.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/images_8loQLEJ.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/blog/posts/saeed-samiee-project.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/20230712_183259.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/20230712_183359.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/20230712_183839.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/20230712_184043.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/20230712_185747.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/20230712_185925.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/20230716_161627.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/20230716_161713.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/Ai.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/IOT.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/IOT_YL30SWs.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/avatar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/mem.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/pexels-athena-2582935.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/pexels-pixabay-159299.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/pexels-rethaferguson-3825581.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/pexels-tanasovich-2588757.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/gallery_images/ppu-1508399636-568a3553a0d3ed3657475829471cf07d-networking-technology-ico_joByCpl.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/Aniseh-Dorostkar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/Erfan_Nokhiz.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/Farshid.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/IMG_20231114_172525_806.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/IMG_20231114_172525_806_TNIQDax.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/IMG_20231114_172525_806_VA8vWRu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/IMG_20231114_172525_806_tTtfxiY.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/Mina.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/Mohammadreza_Saberikia.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/ali_ghasemi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/amir.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/avatar.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/avatar_8ozmBNq.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/avatar_Ew8DRK2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/avatar_FJ5BdK3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/avatar_FJdpxMZ.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/avatar_FJdpxMZ_2UBgT1o.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/avatar_K3eaIoz.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/avatar_VtEKMIl.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/avatar_WXvHBUa.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/avatar_e3O21Uu.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/avatar_snNcSti.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/belal_Jahan_Niya.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/faezehadham.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/farbeh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/fateme_shokouhinia.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/mahsa.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/msharifzadeh.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/neginajloo.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/parya_hazratian.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/saeedi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/sarahn.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/shahab_Salehi.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/zahra_azharirad.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/media/users/zahranorouzi1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/members/alumni_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/members/alumni_info.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +183,7 @@
       <workItem from="1727759978718" duration="11510000" />
       <workItem from="1727845659584" duration="297000" />
       <workItem from="1728794195102" duration="3113000" />
-      <workItem from="1728822657250" duration="353000" />
+      <workItem from="1728822657250" duration="2943000" />
     </task>
     <servers />
   </component>

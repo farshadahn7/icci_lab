@@ -25,6 +25,7 @@ class CustomUser(AbstractUser):
     user_image = models.ImageField(blank=True, upload_to='users', default='img/user/avatar.jpg')
     linkedin_url = models.CharField(max_length=512, blank=True, null=True)
     telegram_url = models.CharField(max_length=512, blank=True, null=True)
+    personal_website = models.CharField(max_length=512, blank=True, null=True)
     user_role = models.CharField(max_length=10, choices=USER_ROLE, default=USER_ROLE[0])
     bio = models.CharField(max_length=256, blank=True, null=True)
 

@@ -4,7 +4,7 @@
         <div class="widget">
             <div class="widget-author">
                 <div class="author-img">
-                    <a href="" class="image">
+                    <a href="{% if alumni_member.personal_website %}https://{{ alumni_member.personal_website }}{% endif %}" class="image">
                         <img src="{{ alumni_member.user_image.url }}" alt="{{ alumni_member.full_name }}">
                     </a>
                 </div>
