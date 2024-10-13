@@ -20,14 +20,14 @@
                         <ul class="list-inline">
                             {% if alumni_member.linkedin_url is not None %}
                                 <li>
-                                    <a href="{{ alumni_member.linkedin_url }}" class="color-linkedin">
+                                    <a href="https://{{ alumni_member.linkedin_url }}" target="_blank" class="color-linkedin">
                                         <i class="fab la-linkedin color-linkedin"></i>
                                     </a>
                                 </li>
                             {% endif %}
                             {% if alumni_member.telegram_url is not None %}
                                 <li>
-                                    <a href="{{ alumni_member.telegram_url }}" class="color-telegram">
+                                    <a href="https://{{ alumni_member.telegram_url }}" target="_blank" class="color-telegram">
                                         <i class="fab la-telegram color-telegram"></i>
                                     </a>
                                 </li>
