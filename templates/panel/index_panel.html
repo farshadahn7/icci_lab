@@ -11,6 +11,11 @@
                         <div class="page_title_left d-flex align-items-center">
                             <h3 class="f_s_25 f_w_700 dark_text mr_30">Dashboard</h3>
                         </div>
+                        {% if messages  %}
+                            {% for message in messages %}
+                                    <div class="alert my_message {{ message.tags }}">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
                     </div>
                 </div>
             </div>
@@ -136,7 +141,7 @@
                                 <div class="single_user_pil d-flex align-items-center justify-content-between">
                                     <div class="user_pils_thumb d-flex align-items-center">
                                         <div class="thumb_34 mr_15 mt-0"><img class="img-fluid radius_50"
-                                                                              src="{{ admin.user_image.url }}" alt>
+                                                                              src="{{ admin.user_image.url }}" alt="{{ admin.full_name }}">
                                         </div>
                                         <span class="f_s_14 f_w_400 text_color_11">{{ admin.username }}</span>
                                     </div>

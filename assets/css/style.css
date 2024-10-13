@@ -870,6 +870,14 @@ input:checked + .slider:before {
 .ads-banner img {
   border-radius: 5px;
 }
+.message_box{
+  width: 500px;
+  margin: auto;
+  display: block;
+  position: relative;
+  -webkit-transition: all 0.9s ease-in-out;
+  transition: all 0.9s ease-in-out;
+}
 
 /* ------------------------------
 		 Section

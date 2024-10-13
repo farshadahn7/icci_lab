@@ -14,10 +14,13 @@
                         <h5>Sign up</h5>
                     </div>
 
-                    <form class="sign-form widget-form contact_form " method="post" action="{% url 'accounts:signup_view' %}">
+                    <form class="sign-form widget-form  " method="post" action="{% url 'accounts:signup_view' %}">
                         {% csrf_token %}
-                        <div class="alert alert-success contact_msg" style="display: none" role="alert">
-                        </div>
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert my_message {{ message.tags }}" role="alert">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
                         <div class="form-group">
 
                             <input type="text" class="form-control" placeholder="Username*" name="username" value="">
@@ -37,7 +40,7 @@
                                    value="">
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn-custom" id="submit_btn">Sign Up</button>
+                            <button type="submit" class="btn-custom">Sign Up</button>
                         </div>
                         <p class="form-group text-center">Already have an account? <a href="{% url 'accounts:login_view' %}"
                                                                                       class="btn-link">Login</a></p>

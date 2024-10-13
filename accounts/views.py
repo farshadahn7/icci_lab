@@ -3,6 +3,7 @@ from django.http import JsonResponse, HttpResponse
 from django.views import View, generic
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib import messages
 
 from .forms import LoginForm, SignupForm
 
@@ -22,28 +23,24 @@ class LoginView(View):
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 if user.professor_verification:
-                    if user.user_role in ['admin', 'head']:
-                        login(request, user)
-                        return JsonResponse(
-                            {'status': 1, 'msg': 'Logged in successfully', 'url': reverse('panel:panel_home')})
-                    else:
-                        login(request, user)
-                        return JsonResponse(
-                            {'status': 1, 'msg': 'Logged in successfully', 'url': reverse('pages:home')})
+                    login(request, user)
+                    messages.success(request, f"Welcome {user.first_name}")
+                    return redirect('panel:panel_home')
                 else:
-                    return JsonResponse(
-                        {'status': 2, 'msg': 'still under acceptance process from ICCI lab head.'})
+                    messages.info(request, "Professor verification failed.")
+                    return redirect('accounts:login_view')
             else:
-                return JsonResponse(
-                    {'status': 3, 'msg': 'Username or password is incorrect'})
+                messages.error(request, "Invalid username or password.")
+                return redirect('accounts:login_view')
         else:
-            return JsonResponse(
-                {'status': 3, 'msg': 'Username or password is incorrect'})
+            messages.error(request, "Invalid username or password.")
+            return redirect('accounts:login_view')
 
 
 class LogoutView(LoginRequiredMixin, View):
     def get(self, request, *args, **kwargs):
         logout(request)
+        messages.success(request, "You have been logged out.")
         return redirect('pages:home')
 
 
@@ -58,11 +55,11 @@ class SignupView(generic.CreateView):
         form = SignupForm(request.POST)
         if form.is_valid():
             form.save()
-            return JsonResponse(
-                {'status': 1, 'msg': 'registered successfully. Message sent for ICCI LAB head for verification.'})
+            messages.success(request, "registered successfully. Message sent for ICCI LAB's head for verification.")
+            return redirect('accounts:login_view')
         else:
-            return JsonResponse(
-                {'status': 3, 'msg': form.errors})
+            messages.error(request, "oops you may entered invalid inputs try again.")
+            return redirect('accounts:signup_view')
 
 
 class CurrentView(generic.TemplateView):

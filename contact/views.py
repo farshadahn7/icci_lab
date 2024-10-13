@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
 from django.http import JsonResponse
+from django.contrib import messages
 
 from contact.forms import ContactForm
 from contact.models import Contact
@@ -13,9 +14,11 @@ class ContactView(generic.CreateView):
 
     def form_valid(self, form):
         form.save()
-        return JsonResponse({'status': 1, 'msg': 'Message sent successfully.'})
+        messages.success(self.request, 'Thank you! Your Message sent successfully.')
+        return redirect('contact:contact')
 
     def form_invalid(self, form):
-        return JsonResponse({'status': 2, 'msg': 'opps somthing went wrong tyr again later'})
+        messages.error(self.request, 'Oops, Something went wrong! try again.')
+        return redirect('contact:contact')
 
 # Create your views here.

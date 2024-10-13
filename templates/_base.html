@@ -242,13 +242,15 @@
 <script src="{% static 'js/swiper.min.js' %}"></script>
 <script src="{% static 'js/masonry.min.js' %}"></script>
 <script src="{% static 'js/theia-sticky-sidebar.min.js' %}"></script>
-<script src="{% static 'js/ajax-contact.js' %}"></script>
+{#<script src="{% static 'js/ajax-contact.js' %}"></script>#}
 <script src="{% static 'js/switch.js' %}"></script>
 
 <!-- JS main  -->
 <script src="{% static 'js/main.js' %}"></script>
 <script src="{% static 'js/custom.js' %}"></script>
-
+<script>
+$('.my_message').hide().fadeIn(500).delay(2000).fadeOut(500);  
+</script>
 {##}
 {#    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet"#}
 {#          id="bootstrap-css">#}

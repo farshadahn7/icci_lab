@@ -13,10 +13,14 @@
                     <div class="section-title">
                         <h5>Login</h5>
                     </div>
-                    <form action="{% url 'accounts:login_view' %}" class="sign-form widget-form contact_form" method="post">
+                    <form action="{% url 'accounts:login_view' %}" class="sign-form widget-form" method="post">
                         {% csrf_token %}
-                        <div class="alert alert-success contact_msg" style="display: none" role="alert">
-                        </div>
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert my_message {{ message.tags }}" role="alert">{{ message }}</div>
+                            {% endfor %}
+                        {% endif %}
+
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Username/email*" name="login" value="">
                         </div>
@@ -25,7 +29,7 @@
                                    value="">
                         </div>
                         <div class="form-group">
-                            <button type="submit" class="btn-custom" id="submit_btn">Login now</button>
+                            <button type="submit" class="btn-custom">Login now</button>
                         </div>
                         <p class="form-group text-center">Forget Password? <a href="{% url 'password_reset' %}" class="btn-link">Reset Password</a></p>
                         <p class="form-group text-center">Don't have an account? <a href="{% url 'accounts:signup_view' %}" class="btn-link">Create
